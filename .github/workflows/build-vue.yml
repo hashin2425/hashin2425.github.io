@@ -30,8 +30,8 @@ jobs:
         run: |
           rm -rf ./docs/
           mkdir ./docs
-          mv -f ./src/dist/* ./docs/
-          mv -f ./configs/* ./docs/
+            cp -r ./src/dist/* ./docs/
+            cp -r ./configs/* ./docs/
 
       - name: Commit and push
         run: |
