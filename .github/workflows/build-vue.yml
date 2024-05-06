@@ -31,7 +31,7 @@ jobs:
           rm -rf ./docs/
           mkdir ./docs
           mv -f ./src/dist/* ./docs/
-          mv -f ./config/* ./docs/
+          mv -f ./configs/* ./docs/
 
       - name: Commit and push
         run: |
