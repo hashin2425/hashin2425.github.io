@@ -25,12 +25,13 @@ jobs:
       - name: Build project
         run: npm run build
         working-directory: ./src
-        
+
       - name: Move build to docs
         run: |
           rm -rf ./docs/
           mkdir ./docs
-          mv ./src/dist/* ./docs/
+          mv -f ./src/dist/* ./docs/
+          mv -f ./config/* ./docs/
 
       - name: Commit and push
         run: |
