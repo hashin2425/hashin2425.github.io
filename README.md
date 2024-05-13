@@ -1,5 +1,14 @@
 # hashin2425.github.io
 
+## 開発する
+
+```sh
+cd .src
+npm run serve
+```
+
+## memo
+
 `/docs` ディレクトリに `/docs` ディレクトリ内に `CNAME` ファイルを作成する必要があります。
 
 詳細については、公式ドキュメントを参照してください：
