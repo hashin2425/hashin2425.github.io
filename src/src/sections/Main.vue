@@ -75,7 +75,7 @@
           </tr>
           <tr>
             <th>SaaS</th>
-            <td>Firebase Authentication</td>
+            <td>Firebase Authentication / Google App Script</td>
           </tr>
           <tr>
             <th>CI/CD</th>
