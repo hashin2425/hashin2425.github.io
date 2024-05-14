@@ -91,9 +91,7 @@
         <div class="child">
         </div>
       </div>
-      <div style="overflow: auto;">
-        <CreativeCard></CreativeCard>
-      </div>
+      <CreativeCard></CreativeCard>
     </div>
 
     <div id="articles-container">

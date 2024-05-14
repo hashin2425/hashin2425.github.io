@@ -47,15 +47,15 @@
                   <div>{{ project.description }}</div>
                 </td>
               </tr>
-              <tr>
+              <tr v-if="project.codeLink">
                 <th>リンク</th>
                 <td><a :href="project.codeLink" target="_blank">GitHubリポジトリ</a></td>
               </tr>
-              <tr>
+              <tr v-if="project.whyDid">
                 <th>きっかけ</th>
                 <td>{{ project.whyDid }}</td>
               </tr>
-              <tr>
+              <tr v-if="project.appealPoint">
                 <th>アピールポイント</th>
                 <td>{{ project.appealPoint }}</td>
               </tr>
@@ -85,58 +85,28 @@ export default {
           description: "GitHub Pagesを用いることによって静的Webサイトを公開しています。Vue.jsファイルからビルドする作業はローカルで行わず、GitHub Actionsを用いて、自動的に行うように設定しています。具体的には、リポジトリのmainブランチにコードがプルされたときに自動的にビルドが開始し、GitHub Pagesへのデプロイまでを行うように設定しています。",
           technologies: ["Vue.js", "GitHub Actions"],
           codeLink: "https://github.com/hashin2425/hashin2425",
-          appealPoint: "               ",
           whyDid: "GitHub ActionsによるCI/CDを勉強したかったので",
         }, {
           name: "ゲーム「競え！初夏の夢祭り」",
           period: "2023年8月から10月",
           team: "デザイナ・サウンドクリエイタを含む8名チームで、私はプログラマとして参加しました。",
           about: "夏祭りの気分を味わえるゲーム「競え！初夏の夢祭り」の作成に参加しました。",
-          description: "               ",
           technologies: ["Unity", "C#"],
           codeLink: "https://github.com/hashin2425/CGP_team_2023_c",
-          appealPoint: "               ",
-          whyDid: "               ",
         }, {
           name: "学生食堂の混雑度状況がわかるアプリ",
           period: "2023年5月から(継続)",
           team: "エンジニア2名チームで、私はバックエンド・フロントエンドでの開発に取り組みました。",
           about: "                 ",
-          description: "               ",
           technologies: ["Python", "JavaScript", "MySQL", "Node.js", "Express.js", "Redis", "Docker", "サーバー構築", "FastAPI", "Linux",],
           codeLink: "https://github.com/hashin2425/dockerWebAppTemperate",
-          appealPoint: "               ",
-          whyDid: "               ",
         }, {
           name: "ソーラーカー監視ソフトウェア",
           period: "2023年4月から6月",
           team: "個人開発",
           about: "ソーラーカーに搭載されたセンサー類を監視するためのGUIアプリケーション",
-          description: "               ",
           technologies: ["Python", "eel-Python", "Chart.js",],
           codeLink: "https://github.com/hashin2425/SolarCarSensorMonitor",
-          appealPoint: "               ",
-          whyDid: "               ",
-        }, {
-          name: "LazyRename",
-          period: "               ",
-          team: "               ",
-          about: "一括でファイル名を変更するためのWindows向けソフトウェア",
-          description: "               ",
-          technologies: ["C#", ".NET Framework"],
-          codeLink: "https://github.com/hashin2425/LazyRename",
-          appealPoint: "               ",
-          whyDid: "               ",
-        }, {
-          name: "ロボカップ得点計算ソフト",
-          period: "               ",
-          team: "個人開発",
-          about: "ロボカップレスキューの得点を計算するためのオフライン用アプリ",
-          description: "               ",
-          technologies: ["JavaScript"],
-          codeLink: "https://github.com/hashin2425/robocup_calc",
-          appealPoint: "               ",
-          whyDid: "               ",
         },
       ],
     };
@@ -176,21 +146,14 @@ export default {
 
 <style scoped>
 .projects {
-  display: flex;
   padding: 0;
   margin: 0;
   width: 100%;
-  min-height: 100vh;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  justify-content: center;
-  align-items: flex-start;
+  min-height: 50vh;
 }
 
 .project-card {
-  display: flex;
-  margin: 1rem;
+  display: block;
   width: 100%;
   border-radius: 1rem;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.4);
@@ -234,6 +197,14 @@ tr {
 th {
   width: 8rem;
   padding: 0.3rem;
+}
+
+@media screen and (max-width: 600px) {
+
+  th,
+  td {
+    display: block;
+  }
 }
 
 .project-name {
