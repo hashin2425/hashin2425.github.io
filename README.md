@@ -1,13 +1,25 @@
 # hashin2425.github.io
 
-## 開発する
+## 技術スタックとか
 
-```sh
-cd .src
-npm run serve
-```
+- Vue.js
+- GitHub Actions
+- GitHub Pages
 
-## memo
+## 開発方法
+
+### ホットリロードを起動する
+
+実行：
+
+- `cd src`
+- `npm run serve`
+
+### デプロイ
+
+`main`ブランチにプッシュすると、自動でデプロイが始まる。
+
+## メモ書き
 
 `/docs` ディレクトリに `/docs` ディレクトリ内に `CNAME` ファイルを作成する必要があります。
 
