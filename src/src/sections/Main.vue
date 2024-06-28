@@ -12,7 +12,8 @@
       <h2>SNS</h2>
       <div class="about-sns">
         <a v-for="s in sns" :key="s.name" :href="s.url" target="_blank" rel="noopener noreferrer">
-          {{ s.name }}
+          <span class="sns-button" :style="{ backgroundColor: s.color }">{{ s.name }}</span>
+          <span class="sns-id">{{ s.id }}</span>
         </a>
       </div>
     </div>
@@ -139,10 +140,10 @@ export default {
     return {
       myIcon,
       sns: [
-        { name: "- Twitter @HashIn2425", url: "https://twitter.com/HashIn2425" },
-        { name: "- GitHub @hashin2425", url: "https://github.com/hashin2425" },
-        { name: "- Qiita @hashin2425", url: "https://qiita.com/hashin2425" },
-        { name: "- AtCoder @HashIn2425", url: "https://atcoder.jp/users/HashIn2425" },
+        { name: "Twitter (X)", color: "#1DA1F2", url: "https://x.com/HashIn2425", id: "@HashIn2425" },
+        { name: "GitHub", color: "#24292e", url: "https://github.com/hashin2425", id: "@hashin2425" },
+        { name: "Qiita", color: "#55C500", url: "https://qiita.com/hashin2425", id: "@hashin2425" },
+        { name: "AtCoder", color: "green", url: "https://atcoder.jp/users/HashIn2425", id: "@HashIn2425" },
       ],
     };
   },
@@ -191,6 +192,26 @@ export default {
     a {
       display: block;
       text-decoration: none;
+    }
+    a:hover {
+      background-color: #ebebeb;
+    }
+
+    .sns-button {
+      display: inline-block;
+      height: 2rem;
+      min-width: 5rem;
+      padding: 0.2rem 1.0rem 0 1.0rem;
+      margin: 0.25rem 0.5rem 0.25rem 0;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+      text-align: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .sns-id {
+      display: inline-block;
     }
   }
 }

@@ -28,6 +28,26 @@
               </tr>
             </thead>
             <tbody>
+
+              <tr>
+                <th>技術</th>
+                <td>
+                  <div>
+                    <span class="project-technologies" v-for="technology in project.technologies" :key="technology">
+                      {{ technology }}
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>リンク</th>
+                <td>
+                  <a v-if="project.codeLink" :href="project.codeLink" target="_blank"
+                    class="link-github">GitHubリポジトリ</a>
+                  <a v-if="project.websiteLink" :href="project.websiteLink" target="_blank"
+                    class="link-artifact">ウェブサイト</a>
+                </td>
+              </tr>
               <tr>
                 <th>期間</th>
                 <td>{{ project.period }}</td>
@@ -36,24 +56,13 @@
                 <th>開発体制</th>
                 <td>{{ project.team }}</td>
               </tr>
-              <tr>
-                <th>開発言語・技術</th>
-                <td>
-                  <div>
-                    <span class="project-technologies" v-for="technology in project.technologies" :key="technology">
-                      {{ technology }}
-                    </span>
-                  </div>
-                  <div>{{ project.description }}</div>
-                </td>
-              </tr>
-              <tr v-if="project.codeLink">
-                <th>リンク</th>
-                <td><a :href="project.codeLink" target="_blank">GitHubリポジトリ</a></td>
-              </tr>
               <tr v-if="project.whyDid">
                 <th>きっかけ</th>
                 <td>{{ project.whyDid }}</td>
+              </tr>
+              <tr v-if="project.description">
+                <th>説明</th>
+                <td>{{ project.description }}</td>
               </tr>
               <tr v-if="project.appealPoint">
                 <th>アピールポイント</th>
@@ -78,35 +87,48 @@ export default {
       selectedTechnologies: [],
       projects: [
         {
+          name: "ゲーム「競え！初夏の夢祭り」",
+          period: "2023年8～10月",
+          team: "チーム開発。デザイナーやサウンドクリエイターを含む8名で、私はプログラマーとして参加しました。",
+          about: "夏祭りの気分を味わえるゲーム「競え！初夏の夢祭り」の作成に参加しました。",
+          appealPoint: "エフェクトやアニメーションを使って、視覚的なゲーム体験を高めました。",
+          technologies: ["Unity", "C#"],
+          codeLink: "https://github.com/hashin2425/CGP_team_2023_c",
+          websiteLink: "https://unityroom.com/games/midsummer-festa",
+        }, {
+          name: "どうこむ｜和大の食堂混雑度アプリ",
+          period: "2023年5月～(継続)",
+          team: "チーム開発。エンジニア2名チームで、私はサーバーサイド・フロントエンドで開発に取り組みました。",
+          about: "大学内食堂の混雑状況がわかるアプリと計測システムを開発しました。",
+          description: "食堂内で検出されたBluetoothデバイスの件数を混雑データとして活用しています。この計測機器はRaspberry Piで稼働しており、収集されたデータはクラウド上のシステム・アプリから学生へ配信されます。",
+          technologies: ["Python", "JavaScript", "Azure Cosmos DB", "Azure App Service", "Azure Functions", "FastAPI", "Flask", "Vue.js", "socket.io", "GitHub Actions", "Saas", "Linux", "Raspberry Pi", "SQLite"],
+          websiteLink: "https://cafe.applii-wu.net/",
+        }, {
+          name: "AppLiiホームページ",
+          period: "2024年1月",
+          team: "個人開発",
+          about: "「ITものづくりプロジェクトAppLii」のホームページを作成しました。",
+          description: "和歌山大学のITエンジニアコミュニティ「ITものづくりプロジェクト AppLii」のWebサイトを制作しました。WebデザインからSEO対策まで取り組みました。",
+          technologies: ["Vue.js", "Nuxt.js", "GitHub Actions", "Saas"],
+          codeLink: "https://github.com/AppLii/AppLii.github.io",
+          websiteLink: "https://applii-wu.net/",
+        }, {
+          name: "ソーラーカー監視ソフトウェア",
+          period: "2023年4～6月",
+          team: "個人開発",
+          about: "ソーラーカーに搭載されたセンサー類を監視するためのGUIアプリケーション",
+          description: "和歌山大学ソーラーカープロジェクトにおいて、ソーラーカーに搭載されたセンサー類を監視するためのGUIアプリケーションを作成しました。メンバーにヒアリングを行いながら要件定義し、リリースまで行いました。",
+          technologies: ["Python", "eel-Python", "Chart.js",],
+          codeLink: "https://github.com/hashin2425/SolarCarSensorMonitor",
+        }, {
           name: "ポートフォリオサイト(このサイト)",
           period: "2023年10月",
           team: "個人開発",
           about: "ポートフォリオサイトをVue.jsによって作成しました。",
-          description: "GitHub Pagesを用いることによって静的Webサイトを公開しています。Vue.jsファイルからビルドする作業はローカルで行わず、GitHub Actionsを用いて、自動的に行うように設定しています。具体的には、リポジトリのmainブランチにコードがプルされたときに自動的にビルドが開始し、GitHub Pagesへのデプロイまでを行うように設定しています。",
+          description: "プルから公開までをGitHub Actionsで自動化しています。",
           technologies: ["Vue.js", "GitHub Actions"],
           codeLink: "https://github.com/hashin2425/hashin2425",
-          whyDid: "GitHub ActionsによるCI/CDを勉強したかったので",
-        }, {
-          name: "ゲーム「競え！初夏の夢祭り」",
-          period: "2023年8月から10月",
-          team: "デザイナ・サウンドクリエイタを含む8名チームで、私はプログラマとして参加しました。",
-          about: "夏祭りの気分を味わえるゲーム「競え！初夏の夢祭り」の作成に参加しました。",
-          technologies: ["Unity", "C#"],
-          codeLink: "https://github.com/hashin2425/CGP_team_2023_c",
-        }, {
-          name: "学生食堂の混雑度状況がわかるアプリ",
-          period: "2023年5月から(継続)",
-          team: "エンジニア2名チームで、私はバックエンド・フロントエンドでの開発に取り組みました。",
-          about: "                 ",
-          technologies: ["Python", "JavaScript", "MySQL", "Node.js", "Express.js", "Redis", "Docker", "サーバー構築", "FastAPI", "Linux",],
-          codeLink: "https://github.com/hashin2425/dockerWebAppTemperate",
-        }, {
-          name: "ソーラーカー監視ソフトウェア",
-          period: "2023年4月から6月",
-          team: "個人開発",
-          about: "ソーラーカーに搭載されたセンサー類を監視するためのGUIアプリケーション",
-          technologies: ["Python", "eel-Python", "Chart.js",],
-          codeLink: "https://github.com/hashin2425/SolarCarSensorMonitor",
+          websiteLink: "https://hashin.net/",
         },
       ],
     };
@@ -145,26 +167,125 @@ export default {
 </script>
 
 <style scoped>
+.search {
+  display: flex;
+  align-items: baseline;
+  justify-content: left;
+  flex-wrap: wrap;
+
+  .search-tech {
+    display: inline-block;
+    white-space: nowrap;
+    border-radius: 0.4rem;
+    margin: 0.2rem 0.2rem;
+    padding: 0 0.4rem;
+    font-size: 1rem;
+    user-select: none;
+    border: #0ba360 0.1rem solid;
+    box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.4);
+    }
+
+    &.technology-selected {
+      background-image: linear-gradient(45deg, #0ba360 0%, #3cba92 100%);
+      color: white;
+    }
+
+    &.technology-not-selected {
+      background-color: white;
+      color: #0ba360;
+    }
+  }
+}
+
 .projects {
   padding: 0;
   margin: 0;
   width: 100%;
   min-height: 50vh;
-}
 
-.project-card {
-  display: block;
-  width: 100%;
-  border-radius: 1rem;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.4);
-  user-select: none;
-  background-color: white;
-}
+  div:not(:last-child) {
+    margin-bottom: 2rem;
+  }
 
+  .project-card {
+    display: block;
+    width: 100%;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    user-select: none;
 
-th {
-  text-align: left;
-  white-space: nowrap;
+    .table-box {
+      padding: 0.4rem;
+      margin: 1rem;
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+
+        tr {
+          border-bottom: solid 1px rgba(32, 32, 32, 0.5);
+          padding: 10.2rem 0;
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+
+        th {
+          text-align: center;
+          width: 4.5rem;
+          padding: 0.3rem;
+        }
+
+        @media screen and (max-width: 600px) {
+
+          th,
+          td {
+            width: 100%;
+            text-align: left;
+            display: block;
+          }
+        }
+
+        .project-name {
+          font-size: 1.6rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .project-technologies {
+          display: inline-block;
+          margin: 0.2rem 0.2rem;
+          padding: 0rem 0.4rem;
+          border-radius: 0.4rem;
+          color: white;
+          background-image: linear-gradient(45deg, #0ba360 0%, #3cba92 100%);
+          box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .link-github,
+        .link-artifact {
+          display: inline-block;
+          text-decoration: none;
+          white-space: nowrap;
+          margin: 0.2rem;
+          padding: 0.1rem 0.5rem;
+          color: white;
+          border-radius: 0.4rem;
+          box-shadow: 0 0 0.75rem 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .link-github {
+          background-color: #24292e;
+        }
+
+        .link-artifact {
+          background: linear-gradient(45deg, rgb(10, 30, 190), rgb(60, 10, 200));
+        }
+      }
+    }
+  }
 }
 
 .image-box {
@@ -172,82 +293,11 @@ th {
   max-height: 15rem;
   min-width: 10rem;
   min-height: 10rem;
-}
 
-img {
-  width: 100%;
-  height: 100%;
-}
-
-.table-box {
-  padding: 0.4rem;
-  margin: 1rem;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-tr {
-  border-bottom: solid 1px rgba(32, 32, 32, 0.5);
-  padding: 10.2rem 0;
-}
-
-th {
-  width: 8rem;
-  padding: 0.3rem;
-}
-
-@media screen and (max-width: 600px) {
-
-  th,
-  td {
-    display: block;
+  img {
+    width: 100%;
+    height: 100%;
   }
-}
-
-.project-name {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-}
-
-.project-technologies {
-  display: inline-block;
-  background-image: linear-gradient(45deg, #0ba360 0%, #3cba92 100%);
-  margin: 0.2rem 0.2rem;
-  padding: 0rem 0.4rem;
-  color: white;
-  border-radius: 0.4rem;
-}
-
-.search {
-  display: flex;
-  align-items: baseline;
-  justify-content: left;
-  flex-wrap: wrap;
-}
-
-.search-tech {
-  display: inline-block;
-  white-space: nowrap;
-  border-radius: 0.4rem;
-  margin: 0.2rem 0.2rem;
-  padding: 0 0.4rem;
-  font-size: 1rem;
-  user-select: none;
-  border: #0ba360 0.1rem solid;
-}
-
-.technology-selected {
-  background-image: linear-gradient(45deg, #0ba360 0%, #3cba92 100%);
-
-  color: white;
-}
-
-.technology-not-selected {
-  background-color: white;
-  color: #0ba360;
 }
 </style>
 
