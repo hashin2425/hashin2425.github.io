@@ -201,6 +201,7 @@ export default {
 }
 
 .projects {
+  background-color: #ffffff;
   padding: 0;
   margin: 0;
   width: 100%;

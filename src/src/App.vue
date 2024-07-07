@@ -24,7 +24,6 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: #f5f5f5;
 }
 
 body {
