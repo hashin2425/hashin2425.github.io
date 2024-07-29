@@ -47,15 +47,15 @@
           <tbody>
             <tr>
               <th>主な言語</th>
-              <td>Python / JavaScript / C#</td>
+              <td>Python / JavaScript / TypeScript / C#</td>
             </tr>
             <tr>
               <th>フロントエンド</th>
-              <td>Vue.js / Sass / HTML / CSS</td>
+              <td>Vue.js(NuxtJS) / React(Next.js) / TailwindCSS / SASS SCSS</td>
             </tr>
             <tr>
               <th>バックエンド</th>
-              <td>FastAPI / Flask</td>
+              <td>FastAPI / Flask / Node.js(Express)</td>
             </tr>
             <tr>
               <th>データ分析</th>

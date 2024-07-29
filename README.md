@@ -6,6 +6,8 @@
 - GitHub Actions
 - GitHub Pages
 
+（個人的には React で書き直したい）
+
 ## 開発方法
 
 ### ホットリロードを起動する
