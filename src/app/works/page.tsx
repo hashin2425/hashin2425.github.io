@@ -1,4 +1,4 @@
-export default function AboutPage() {
+export default function WorksPage() {
   return (
     <div>
       <h1>About Us</h1>

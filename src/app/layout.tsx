@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
+import { Noto_Sans_JP } from "next/font/google";
 import Navigation from "../components/Navigation";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import "./globals.css";
 
-const notoSans = Noto_Sans({
+const notoSansJP = Noto_Sans_JP({
+  // Noto_Sansというフォントもあるが、それは日本語対応していないので使わないように注意する
   weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
@@ -21,9 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={notoSans.className}>
-        <Navigation />
+      <body className={notoSansJP.className + " text-gray-700"}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
