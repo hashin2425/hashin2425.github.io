@@ -154,9 +154,11 @@ export default function Home() {
       <SectionComponent>
         <h2>Works</h2>
         <div className="flex relative">
-          {WorksData.sort((a, b) => b.priority - a.priority).map((work) => (
-            <WorkDisplay key={work.title} {...work} />
-          ))}
+          {WorksData.sort((a, b) => b.priority - a.priority)
+            .slice(0, 2)
+            .map((work) => (
+              <WorkDisplay key={work.title} {...work} />
+            ))}
           <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-gray-100 to-transparent pointer-events-none"></div>
         </div>
         <Link href={"/works"}>
