@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import Image, { StaticImageData } from "next/image";
-
+import { FaGithub } from "react-icons/fa";
+import { CgWebsite } from "react-icons/cg";
 const SectionComponent: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <section className="py-6 px-6 odd:bg-gray-100 even:bg-white">
@@ -38,7 +39,7 @@ interface WorksDataItems {
   title: string;
   img: StaticImageData;
   description: string;
-  githubUrl: string;
+  githubUrl?: string;
   productionUrl: string;
   techList: string[];
   priority: number;
@@ -46,22 +47,32 @@ interface WorksDataItems {
 
 const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, githubUrl, productionUrl, techList }) => {
   return (
-    <div className="w-1/2 shadow-around hover:bg-gray-100 bg-white rounded-xl p-2 m-4">
-      <Image src={img} alt={title} width={500} height={500} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-        GitHub
-      </a>
-      <a href={productionUrl} target="_blank" rel="noopener noreferrer">
-        Production
-      </a>
-      <div>
-        {techList.map((tech) => (
-          <a key={tech} href={`/works/?tag=${tech.replace(" ", "-")}`} className="text-blue-500 hover:bg-blue-200 mx-1 px-2 border border-blue-500 rounded-md">
-            {tech}
-          </a>
-        ))}
+    <div className="w-1/2">
+      <div className="shadow-around hover:bg-gray-100 bg-white rounded-xl p-4 m-4">
+        <Image src={img} alt={title} width={500} height={500} />
+        <h3>{title}</h3>
+        <p className="line-clamp-3">{description}</p>
+        <p className="flex items-center">
+          {githubUrl && (
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-white bg-gray-800 rounded flex items-center p-1 mr-2 my-1">
+              <FaGithub className="text-xl inline mr-1" />
+              リポジトリ
+            </a>
+          )}
+          {productionUrl && (
+            <a href={productionUrl} target="_blank" rel="noopener noreferrer" className="text-white bg-gray-800 rounded flex items-center p-1 mr-2 my-1">
+              <CgWebsite className="text-xl inline mr-1" />
+              公開ページ
+            </a>
+          )}
+        </p>
+        <p className="flex flex-wrap">
+          {techList.map((tech) => (
+            <a key={tech} href={`/works/?tag=${tech.replace(" ", "-")}`} className="text-nowrap text-blue-500 hover:bg-blue-200 mr-1 my-1 px-2 border border-blue-500 rounded-md">
+              {tech}
+            </a>
+          ))}
+        </p>
       </div>
     </div>
   );
