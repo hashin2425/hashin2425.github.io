@@ -40,7 +40,7 @@ interface WorksDataItems {
   img: StaticImageData;
   description: string;
   githubUrl?: string;
-  productionUrl: string;
+  productionUrl?: string;
   techList: string[];
   priority: number;
 }
