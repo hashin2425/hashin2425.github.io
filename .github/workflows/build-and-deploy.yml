@@ -35,6 +35,7 @@ jobs:
           rm -rf ./docs/
           mkdir ./docs
           mv ./out/* ./docs/
+          mv ./configs/* ./docs/
 
       # アンダースコアから始まるディレクトリが無視される不具合によってアイコンが404NotFoundになる
       # その不具合を避けるために、`.nojekyll`を追加する
