@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #404040;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+  padding: 0.5rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
+
+h3 {
+  font-size: 1.17rem;
+  padding: 0.8rem 0;
+}
+
+h4 {
+  font-size: 1rem;
+  padding: 0.8rem 0;
+}
+
+h5 {
+  font-size: 0.83rem;
+  padding: 0.8rem 0;
+}
+
+.responsive-table {
+  width: 100%;
+
+  th,
+  td {
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  th {
+    text-wrap: nowrap;
+    width: 0;
+  }
+
+  td {
+  }
+
+  tr {
+    background-color: white;
+  }
+
+  tr:nth-of-type(odd) {
+    background-color: #f8f8f8;
+  }
+}
+
+.shadow-around {
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+}
