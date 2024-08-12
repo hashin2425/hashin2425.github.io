@@ -1,4 +1,6 @@
-import React, { PropsWithChildren } from "react";
+"use client";
+
+import React, { PropsWithChildren, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
@@ -43,15 +45,24 @@ interface WorksDataItems {
   productionUrl?: string;
   techList: string[];
   priority: number;
+  isShow?: boolean;
 }
 
-const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, githubUrl, productionUrl, techList }) => {
+const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, githubUrl, productionUrl, techList, isShow }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  if (isShow === undefined) isShow = true;
+
   return (
-    <div className="w-1/2">
-      <div className="shadow-around hover:bg-gray-100 bg-white rounded-xl p-4 m-4">
+    <div className={`w-1/2 ${isShow ? "" : "hidden"}`}>
+      <div className="shadow-around hover:bg-gray-100 bg-white rounded-xl p-4 m-4" onClick={toggleExpand}>
         <Image src={img} alt={title} width={500} height={500} />
         <h3>{title}</h3>
-        <p className="line-clamp-3">{description}</p>
+        <p className={isExpanded ? "" : "line-clamp-3"}>{description}</p>
         <p className="flex items-center">
           {githubUrl && (
             <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-white bg-gray-800 rounded flex items-center p-1 mr-2 my-1">
@@ -66,9 +77,9 @@ const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, github
             </a>
           )}
         </p>
-        <p className="flex flex-wrap">
+        <p className={"flex flex-wrap"}>
           {techList.map((tech) => (
-            <a key={tech} href={`/works/?tag=${tech.replace(" ", "-")}`} className="text-nowrap text-blue-500 hover:bg-blue-200 mr-1 my-1 px-2 border border-blue-500 rounded-md">
+            <a key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="inline-block text-nowrap text-sm text-blue-500 hover:bg-blue-200 mr-1 my-1 px-2 border border-blue-500 rounded-md">
               {tech}
             </a>
           ))}

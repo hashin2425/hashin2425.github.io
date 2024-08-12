@@ -30,7 +30,7 @@ const SocialLinks = () => {
 function TechLinksGenerator({ techListText }: PropsWithChildren<{ techListText: string }>) {
   const techList = techListText.split(",");
   return techList.map((tech) => (
-    <a key={tech} href={`/works/?tag=${tech.replace(" ", "-")}`} className="text-blue-500 hover:bg-blue-200 mx-1 px-2 border border-blue-500 rounded-md">
+    <a key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="text-blue-500 hover:bg-blue-200 mx-1 px-2 border border-blue-500 rounded-md">
       {tech}
     </a>
   ));
@@ -82,13 +82,13 @@ export default function Home() {
             <tr>
               <th>プログラミング言語</th>
               <td>
-                <TechLinksGenerator techListText="Python,JavaScript,TypeScript,C-Sharp,Ruby" />
+                <TechLinksGenerator techListText="Python,JavaScript,TypeScript,C Sharp,Ruby" />
               </td>
             </tr>
             <tr>
               <th>フロントエンド</th>
               <td>
-                <TechLinksGenerator techListText="Vue.js,React.js,Tailwind CSS,Sass" />
+                <TechLinksGenerator techListText="Vue.js,React,Tailwind CSS,Sass" />
               </td>
             </tr>
             <tr>
@@ -122,7 +122,7 @@ export default function Home() {
             <tr>
               <th>クラウド（Azure）</th>
               <td>
-                <TechLinksGenerator techListText="App Service,Functions,Cosmos DB,SQL Database " />
+                <TechLinksGenerator techListText="Azure App Service,Azure Functions,Azure Cosmos DB,Azure SQL Database" />
               </td>
             </tr>
             <tr>
@@ -144,7 +144,7 @@ export default function Home() {
             <tr>
               <th>その他</th>
               <td>
-                <TechLinksGenerator techListText="Linux, Raspberry Pi" />
+                <TechLinksGenerator techListText="Linux,Raspberry Pi" />
               </td>
             </tr>
           </tbody>
@@ -157,9 +157,9 @@ export default function Home() {
           {WorksData.sort((a, b) => b.priority - a.priority)
             .slice(0, 2)
             .map((work) => (
-              <WorkDisplay key={work.title} {...work} />
+              <WorkDisplay key={work.title} {...work} isShow={true} />
             ))}
-          <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-gray-100 to-transparent pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-gray-100 to-transparent pointer-events-none"></div>
         </div>
         <Link href={"/works"}>
           <div className="text-center rounded-xl bg-gray-500 text-white p-4 my-4 shadow-xl">すべての作品を見る</div>
@@ -180,7 +180,7 @@ export default function Home() {
       <SectionComponent>
         <h2>Interests</h2>
         <h3>興味のあるキーワード</h3>
-        <p>UI/UX設計、プログレッシブウェブアプリ（PWA）、行動経済学、フィンテック、マーケティング</p>
+        <p>UI/UX設計、プログレッシブウェブアプリ（PWA）、サーバーレスアーキテクチャ、行動経済学、フィンテック、マーケティング</p>
         <h3>興味のある技術</h3>
         <p>（もとい、いずれ勉強したいやつ）</p>
         <p>PHP、Go、Docker、React Native、Flutter</p>
@@ -202,12 +202,12 @@ export default function Home() {
         <p>メインのPCに加え、24時間365日稼働の計算リソースとしてRaspberry Pi 4を運用しています。毎日7時間程度かかる作業を自動化したり、NASとして運用したりしています。</p>
         <h3>Systems</h3>
         <p>
-          <a href="https://hashin.net/pi-infra-core/" target="_blank">
+          <a href="https://hashin.net/pi-infra-core/" target="_blank" className="underline">
             自宅サーバー生存確認用Webサイト
           </a>
         </p>
         <p>
-          <a href="https://github.com/hashin2425/pi-infra-core" target="_blank">
+          <a href="https://github.com/hashin2425/pi-infra-core" target="_blank" className="underline">
             自宅サーバーリポジトリ
           </a>
         </p>
