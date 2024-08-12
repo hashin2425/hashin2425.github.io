@@ -75,7 +75,6 @@ const WorksData: WorksDataItems[] = [
     techList: ["C#", "Windows Form App"],
     priority: 0,
   },
-  ,
   {
     title: "自宅サーバー監視システム",
     img: workPiInfraCore,
@@ -85,7 +84,6 @@ const WorksData: WorksDataItems[] = [
     techList: [],
     priority: 0,
   },
-  ,
   {
     title: "「エクスプロラーズ」ホームページ",
     img: workExplorerHP,
@@ -95,7 +93,6 @@ const WorksData: WorksDataItems[] = [
     techList: ["Bootstrap"],
     priority: 0,
   },
-  ,
   {
     title: "「エクスプローラーズ」サーバーサイド",
     img: workExplorersBackend,
