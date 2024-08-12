@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { SectionComponent, OGPDisplay, WorkDisplay } from "../../components/Utils";
 import WorksData from "../../components/WorksData";
 import { useRouter } from "next/navigation";
@@ -32,7 +32,7 @@ const TechFilter: React.FC<TechFilterProps> = ({ techs, activeTechs, onChange, o
   </div>
 );
 
-export default function WorksPage() {
+function WorksPageContent() {
   const searchParams = useSearchParams();
   const allTechs = Array.from(new Set(WorksData.flatMap((work) => work.techList)));
 
@@ -63,7 +63,7 @@ export default function WorksPage() {
   }, [activeTechs]);
 
   return (
-    <main>
+    <>
       <SectionComponent>
         <h1>Works</h1>
         <p>このページでは、これまでに開発に携わったプロダクトを紹介しています。</p>
@@ -78,6 +78,16 @@ export default function WorksPage() {
           ))}
         </div>
       </SectionComponent>
+    </>
+  );
+}
+
+export default function WorksPage() {
+  return (
+    <main>
+      <Suspense>
+        <WorksPageContent />
+      </Suspense>
     </main>
   );
 }
