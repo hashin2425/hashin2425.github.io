@@ -19,7 +19,7 @@ const WorksData: WorksDataItems[] = [
     description: "夏祭りの気分を味わえるゲーム「競え！初夏の夢祭り」の制作に参加しました。エフェクトやアニメーションを使って、視覚的なゲーム体験を高めるようにしました。チームでの制作です。",
     githubUrl: "https://github.com/hashin2425/CGP_team_2023_c",
     productionUrl: "https://unityroom.com/games/midsummer-festa",
-    techList: ["Unity", "C#"],
+    techList: ["Unity", "C Sharp"],
     priority: 90,
   },
   {
@@ -27,7 +27,7 @@ const WorksData: WorksDataItems[] = [
     img: workCafeApp,
     description: "大学内食堂の混雑状況がわかるアプリと計測システムを開発しました。食堂内で検出されたBluetoothデバイスの件数を混雑データとして活用しています。この計測機器はRaspberry Piで稼働しており、収集されたデータはクラウド上のシステム・アプリからクライアントへ配信されます。",
     productionUrl: "https://cafe.applii-wu.net/",
-    techList: ["Flask", "Python", "Raspberry Pi", "App Service", "Azure", "MySQL"],
+    techList: ["Flask", "Python", "Raspberry Pi", "Azure App Service", "Azure Cosmos DB", "Azure Functions", "Azure SQL Database", "Vue.js", "FastAPI"],
     priority: 95,
   },
   {
@@ -72,7 +72,7 @@ const WorksData: WorksDataItems[] = [
     description: "文字数指定のあるミニレポートを取り組むためのツール。ちょうど良いソフトが無かったので、自作しました。最低限の文字数カウント機能が付いています。",
     githubUrl: "https://github.com/hashin2425/light-writer",
     productionUrl: "https://github.com/hashin2425/light-writer/releases",
-    techList: ["C#", "Windows Form App"],
+    techList: ["C Sharp", "Windows Form App"],
     priority: 0,
   },
   {
@@ -81,7 +81,7 @@ const WorksData: WorksDataItems[] = [
     description: "自宅サーバー（Raspberry Pi）の監視システム。クラウド（Azure）上にシステムを構築しており、サーバーの状態やタスクの実行状況を監視しています。",
     githubUrl: "https://github.com/hashin2425/pi-infra-core",
     productionUrl: "https://hashin.net/pi-infra-core/",
-    techList: [],
+    techList: ["TypeScript", "React", "Node.js", "Python", "Azure Functions", "Azure Cosmos DB"],
     priority: 0,
   },
   {
