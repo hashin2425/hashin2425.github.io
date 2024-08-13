@@ -4,6 +4,8 @@ import React, { PropsWithChildren, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
+import Link from "next/link";
+
 const SectionComponent: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <section className="py-6 px-6 odd:bg-gray-100 even:bg-white">
@@ -79,9 +81,9 @@ const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, github
         </p>
         <p className={"flex flex-wrap"}>
           {techList.map((tech) => (
-            <a key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="inline-block text-nowrap text-sm text-blue-500 hover:bg-blue-200 mr-1 my-1 px-2 border border-blue-500 rounded-md">
+            <Link key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="inline-block text-nowrap text-sm text-blue-500 hover:bg-blue-200 mr-1 my-1 px-2 border border-blue-500 rounded-md">
               {tech}
-            </a>
+            </Link>
           ))}
         </p>
       </div>

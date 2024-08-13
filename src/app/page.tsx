@@ -18,10 +18,10 @@ const SocialLinks = () => {
   return (
     <div className="flex space-x-6 my-1">
       {socialLinks.map((link) => (
-        <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className={`${link.color} hover:opacity-80 transition-opacity duration-300 flex justify-center content-center`}>
+        <Link key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className={`${link.color} hover:opacity-80 transition-opacity duration-300 flex justify-center content-center`}>
           {link.icon && <link.icon className="text-4xl" />}
           <span className="sr-only">{link.name}</span>
-        </a>
+        </Link>
       ))}
     </div>
   );
@@ -30,9 +30,9 @@ const SocialLinks = () => {
 function TechLinksGenerator({ techListText }: PropsWithChildren<{ techListText: string }>) {
   const techList = techListText.split(",");
   return techList.map((tech) => (
-    <a key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="text-blue-500 hover:bg-blue-200 mx-1 px-2 border border-blue-500 rounded-md">
+    <Link key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="text-blue-500 hover:bg-blue-200 mx-1 px-2 border border-blue-500 rounded-md">
       {tech}
-    </a>
+    </Link>
   ));
 }
 
