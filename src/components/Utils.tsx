@@ -60,7 +60,7 @@ const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, github
   if (isShow === undefined) isShow = true;
 
   return (
-    <div className={`w-1/2 ${isShow ? "" : "hidden"}`}>
+    <div className={`w-1/2 min-w-[400px] ${isShow ? "" : "hidden"}`}>
       <div className="shadow-around hover:bg-gray-100 bg-white rounded-xl p-4 m-4" onClick={toggleExpand}>
         <Image src={img} alt={title} width={500} height={500} />
         <h3>{title}</h3>
