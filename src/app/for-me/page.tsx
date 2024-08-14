@@ -66,12 +66,13 @@ export default function ForMePage() {
       <SectionComponent>
         <h3>グラデーションパレット</h3>
         <div className="flex flex-wrap">
-          <BackgroundDisplay backgroundValue="linear-gradient(110.1deg, rgb(241, 115, 30) 18.9%, rgb(231, 29, 54) 90.7%);" />
-          <BackgroundDisplay backgroundValue="linear-gradient(107deg, rgb(255, 67, 5) 11.1%, rgb(245, 135, 0) 95.3%);" />
-          <BackgroundDisplay backgroundValue="linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 37) 87.1%);" />
+          {/* 行末にセミコロンを付けると、ページ読み込み時に正しく反映されないので付けない。 */}
+          <BackgroundDisplay backgroundValue="linear-gradient(110.1deg, rgb(241, 115, 30) 18.9%, rgb(231, 29, 54) 90.7%)" />
+          <BackgroundDisplay backgroundValue="linear-gradient(107deg, rgb(255, 67, 5) 11.1%, rgb(245, 135, 0) 95.3%)" />
+          <BackgroundDisplay backgroundValue="linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 37) 87.1%)" />
           <BackgroundDisplay backgroundValue="" />
-          <BackgroundDisplay backgroundValue="radial-gradient(circle at 84.6% 77.8%, rgb(86, 89, 218) 0%, rgb(95, 208, 248) 90%);" />
-          <BackgroundDisplay backgroundValue="linear-gradient(109.6deg, rgb(78, 62, 255) 11.2%, rgb(164, 69, 255) 91.1%);" />
+          <BackgroundDisplay backgroundValue="radial-gradient(circle at 84.6% 77.8%, rgb(86, 89, 218) 0%, rgb(95, 208, 248) 90%)" />
+          <BackgroundDisplay backgroundValue="linear-gradient(109.6deg, rgb(78, 62, 255) 11.2%, rgb(164, 69, 255) 91.1%)" />
           <BackgroundDisplay backgroundValue="" />
           <BackgroundDisplay backgroundValue="" />
         </div>
