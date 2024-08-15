@@ -52,13 +52,12 @@ function BackgroundDisplay({ backgroundValue }: { backgroundValue: string }) {
 export default function ForMePage() {
   return (
     <main>
-      <SectionComponent>
+      <SectionComponent h2text="">
         <h2>自分用ページ</h2>
         <p>よく使うカラーパレットなどをまとめておく</p>
       </SectionComponent>
 
-      <SectionComponent>
-        <h3>カラーパレット</h3>
+      <SectionComponent h2text="カラーパレット">
         <div className="flex flex-wrap">
           <ColorDisplay colorCode="#009999" />
           <ColorDisplay colorCode="#55b535" />
@@ -69,8 +68,7 @@ export default function ForMePage() {
         </div>
       </SectionComponent>
 
-      <SectionComponent>
-        <h3>グラデーションパレット</h3>
+      <SectionComponent h2text="グラデーションパレット">
         <div className="flex flex-wrap">
           {/* 行末にセミコロンを付けると、ページ読み込み時に正しく反映されないので付けない。 */}
           <BackgroundDisplay backgroundValue="linear-gradient(108.4deg, rgb(253, 44, 56) 3.3%, rgb(176, 2, 12) 98.4%)" />
@@ -90,8 +88,7 @@ export default function ForMePage() {
         </div>
       </SectionComponent>
 
-      <SectionComponent>
-        <h3>よく使うフォント</h3>
+      <SectionComponent h2text="よく使うフォント">
         <a className="underline" href="https://fonts.google.com/?sort=popularity&subset=japanese&script=Hira">
           Google Fontsで探す
         </a>

@@ -6,10 +6,13 @@ import { FaGithub } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
 import Link from "next/link";
 
-const SectionComponent: React.FC<PropsWithChildren> = ({ children }) => {
+const SectionComponent: React.FC<PropsWithChildren & { h2text: string }> = ({ children, h2text }) => {
   return (
-    <section className="py-6 px-6 odd:bg-gray-100 even:bg-white">
-      <div className="max-w-[900px] mx-auto">{children}</div>
+    <section className="py-6 px-6 odd:bg-gray-100 even:bg-white group">
+      <div className="max-w-[900px] mx-auto">
+        <h2 className={"sticky top-8 group-odd:bg-gray-100 group-even:bg-white pb-0 z-[990]" + (h2text === "" ? " hidden" : "")}>{h2text}</h2>
+        {children}
+      </div>
     </section>
   );
 };
@@ -67,13 +70,13 @@ const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, github
         <p className={isExpanded ? "" : "line-clamp-3"}>{description}</p>
         <p className="flex items-center">
           {githubUrl && (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-white bg-gray-800 rounded flex items-center p-1 mr-2 my-1">
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-white gray-gradient rounded flex items-center p-1 mr-2 my-1">
               <FaGithub className="text-xl inline mr-1" />
               リポジトリ
             </a>
           )}
           {productionUrl && (
-            <a href={productionUrl} target="_blank" rel="noopener noreferrer" className="text-white bg-gray-800 rounded flex items-center p-1 mr-2 my-1">
+            <a href={productionUrl} target="_blank" rel="noopener noreferrer" className="text-white gray-gradient rounded flex items-center p-1 mr-2 my-1">
               <CgWebsite className="text-xl inline mr-1" />
               公開ページ
             </a>

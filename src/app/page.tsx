@@ -29,11 +29,15 @@ const SocialLinks = () => {
 
 function TechLinksGenerator({ techListText }: PropsWithChildren<{ techListText: string }>) {
   const techList = techListText.split(",");
-  return techList.map((tech) => (
-    <Link key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="text-blue-500 hover:bg-blue-200 mx-1 px-2 border border-blue-500 rounded-md">
-      {tech}
-    </Link>
-  ));
+  return (
+    <div className="flex flex-wrap">
+      {techList.map((tech) => (
+        <Link key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="whitespace-nowrap text-blue-500 hover:bg-blue-200 m-1 px-2 border border-blue-500 rounded-md">
+          {tech}
+        </Link>
+      ))}
+    </div>
+  );
 }
 
 function ArticleLinkGenerator({ articleLink, articleTitle }: PropsWithChildren<{ articleLink: string; articleTitle: string }>) {
@@ -50,8 +54,7 @@ function ArticleLinkGenerator({ articleLink, articleTitle }: PropsWithChildren<{
 export default function Home() {
   return (
     <main>
-      <SectionComponent>
-        <h2>About me</h2>
+      <SectionComponent h2text="About me">
         <Image className="rounded-full object-cover shadow-lg border-4 border-white my-4" src={ProfilePicture} alt="hashin profile" width={100} height={100} />
         <p>経済学部の2年生です。</p>
         <p>Webアプリを中心に、人の役に立つプロダクトの開発に取り組んでいます。</p>
@@ -60,8 +63,7 @@ export default function Home() {
         <SocialLinks />
       </SectionComponent>
 
-      <SectionComponent>
-        <h2>Skills</h2>
+      <SectionComponent h2text="Skills">
         <h3>色々</h3>
         <table className="responsive-table">
           <tbody>
@@ -127,7 +129,9 @@ export default function Home() {
             </tr>
             <tr>
               <th>クラウド（AWS）</th>
-              <td>（今後勉強の予定）</td>
+              <td>
+                <TechLinksGenerator techListText="AWS Lambda,AWS API Gateway,AWS Dynamo DB" />
+              </td>
             </tr>
             <tr>
               <th>クラウド（その他）</th>
@@ -151,23 +155,23 @@ export default function Home() {
         </table>
       </SectionComponent>
 
-      <SectionComponent>
-        <h2>Works</h2>
-        <div className="flex relative">
-          {WorksData.sort((a, b) => b.priority - a.priority)
-            .slice(0, 2)
-            .map((work) => (
-              <WorkDisplay key={work.title} {...work} isShow={true} />
-            ))}
+      <SectionComponent h2text="Works">
+        <div className="flex flex-nowrap relative">
+          <div className="flex flex-nowrap overflow-x-auto">
+            {WorksData.sort((a, b) => b.priority - a.priority)
+              .slice(0, 2)
+              .map((work) => (
+                <WorkDisplay key={work.title} {...work} isShow={true} />
+              ))}
+          </div>
           <div className="absolute bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-gray-100 to-transparent pointer-events-none"></div>
         </div>
         <Link href={"/works"}>
-          <div className="text-center rounded-xl bg-gray-500 text-white p-4 my-4 shadow-xl">すべての作品を見る</div>
+          <div className="text-center rounded-xl gray-gradient text-white p-4 my-4 shadow-xl">すべての作品を見る</div>
         </Link>
       </SectionComponent>
 
-      <SectionComponent>
-        <h2>Experiences</h2>
+      <SectionComponent h2text="Experiences">
         <h3>団体経験</h3>
         <p>和歌山大学クリエ「ITものづくりプロジェクト AppLii」を立ち上げ・副代表2年目</p>
         <OGPDisplay pageLink="https://applii-wu.net" imageLink="https://github.com/AppLii/AppLii.github.io/blob/release/docs/applii_ogp.png?raw=true" pageName="クリエ「ITものづくりプロジェクト AppLii」" pageDescription="ソフトウェア開発やプログラミング勉強会が主な活動内容です。和歌山大学のクリエ（学生主導のプロジェクト）であり、さまざまな支援を受けながら活動しています。" pageShortURL="applii-wu.net" />
@@ -177,8 +181,7 @@ export default function Home() {
         </ul>
       </SectionComponent>
 
-      <SectionComponent>
-        <h2>Interests</h2>
+      <SectionComponent h2text="Interests">
         <h3>興味のあるキーワード</h3>
         <p>UI/UX設計、プログレッシブウェブアプリ（PWA）、サーバーレスアーキテクチャ、行動経済学、フィンテック、マーケティング</p>
         <h3>興味のある技術</h3>
@@ -186,8 +189,7 @@ export default function Home() {
         <p>PHP、Go、Docker、React Native、Flutter</p>
       </SectionComponent>
 
-      <SectionComponent>
-        <h2>Articles</h2>
+      <SectionComponent h2text="Articles">
         <p>たまに、Qiitaに記事を投稿しています。普段の開発での困りごと（解決に時間がかかった不具合）などを記録しています。</p>
         <ul>
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/55ccc5e4b18455d1158d" articleTitle="【Python】デフォルト引数値は、関数実行時に計算されるわけではないので注意" />
@@ -197,8 +199,7 @@ export default function Home() {
         </ul>
       </SectionComponent>
 
-      <SectionComponent>
-        <h2>Environments</h2>
+      <SectionComponent h2text="Environments">
         <p>メインのPCに加え、24時間365日稼働の計算リソースとしてRaspberry Pi 4を運用しています。毎日7時間程度かかる作業を自動化したり、NASとして運用したりしています。</p>
         <h3>Systems</h3>
         <p>

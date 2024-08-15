@@ -68,3 +68,15 @@ h5 {
 .shadow-around {
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
 }
+
+.gray-gradient {
+  background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+}
+
+.purple-gradient {
+  background: linear-gradient(109.6deg, rgb(78, 62, 255) 11.2%, rgb(164, 69, 255) 91.1%);
+}
+
+.green-gradient {
+  background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 37) 87.1%);
+}
