@@ -64,14 +64,14 @@ function WorksPageContent() {
 
   return (
     <>
-      <SectionComponent>
+      <SectionComponent h2text="">
         <h1>Works</h1>
         <p>このページでは、これまでに開発に携わったプロダクトを紹介しています。</p>
         <p>それぞれの作品をクリックすると、説明文がすべて表示されます。</p>
         <TechFilter techs={allTechs} activeTechs={activeTechs} onChange={handleTechChange} onSelectAll={handleSelectAll} onDeselectAll={handleDeselectAll} />
       </SectionComponent>
 
-      <SectionComponent>
+      <SectionComponent h2text="">
         <div className="flex flex-wrap justify-around">
           {WorksData.sort((a, b) => b.priority - a.priority).map((work) => (
             <WorkDisplay key={work.title} isShow={work.techList.some((tech) => activeTechs.includes(tech))} {...work} />
