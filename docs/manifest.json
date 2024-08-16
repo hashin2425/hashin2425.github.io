@@ -1,21 +1,30 @@
 {
   "name": "hashin2425",
+  "short_name": "hashin",
   "version": "1.0.0",
   "description": "A website of hashin2425",
   "author": "hashin2425",
   "homepage_url": "https://hashin.net",
   "icons": [
     {
-      "src": "favicon.png",
-      "sizes": "192x192",
+      "src": "https://avatars.githubusercontent.com/u/41288293?v=4",
+      "sizes": "460x460",
       "type": "image/png"
     }
   ],
+  "form_factor": "narrow",
   "start_url": "/",
   "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "ja",
+  "dir": "ltr",
+  "categories": ["website", "portfolio"],
   "permissions": [],
   "background": {},
   "content_scripts": [],
   "browser_action": {},
-  "manifest_version": 2
+  "manifest_version": 3
 }
