@@ -4,8 +4,8 @@ const linkClasses = "hover:text-gray-300 transition duration-300"; // 現状よ�
 
 export default function Header() {
   return (
-    <header className="relative h-8">
-      <nav className="bg-gray-700 text-white py-2 container mx-auto px-4 fixed top-0 shadow-xl z-[999]">
+    <header className="relative h-8 w-full">
+      <nav className="w-full bg-gray-700 text-white py-2 px-4 fixed top-0 shadow-xl z-[999]">
         <ul className="flex justify-between items-center">
           <li>
             <Link href="/" className={linkClasses}>
