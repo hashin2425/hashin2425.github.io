@@ -1,12 +1,55 @@
 "use client";
 
 import { SectionComponent } from "@/components/Utils";
+import { useEffect, useState } from "react";
 import { Noto_Sans_JP, Noto_Serif_JP, Zen_Kaku_Gothic_New } from "next/font/google";
 
 const sampleText = '"Hello, world"は、プログラミング入門で最初に学ぶ典型的な例文で、新しい言語や環境での基本的な出力操作を確認するために使われます。プログラミング文化に深く根付いた簡単なフレーズです。';
 const Noto_Sans_JP_400 = Noto_Sans_JP({ weight: ["400"], subsets: ["latin"] });
 const Noto_Serif_JP_400 = Noto_Serif_JP({ weight: ["400"], subsets: ["latin"] });
 const Zen_Kaku_Gothic_New_400 = Zen_Kaku_Gothic_New({ weight: ["400"], subsets: ["latin"] });
+
+const PWAInstallPrompt: React.FC = () => {
+  const [deferredPrompt, setDeferredPrompt] = useState<any | null>(null);
+  const [showInstallButton, setShowInstallButton] = useState(false);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowInstallButton(true);
+    };
+
+    window.addEventListener("beforeinstallprompt", handler);
+
+    return () => window.removeEventListener("beforeinstallprompt", handler);
+  }, []);
+
+  const handleInstallClick = () => {
+    setShowInstallButton(false);
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult: { outcome: string }) => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("User accepted the install prompt");
+      } else {
+        console.log("User dismissed the install prompt");
+      }
+      setDeferredPrompt(null);
+    });
+  };
+
+  if (!showInstallButton) {
+    return null;
+  }
+
+  return (
+    <div>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleInstallClick}>
+        アプリをインストール
+      </button>
+    </div>
+  );
+};
 
 function clipboardWrite(text: string) {
   navigator.clipboard.writeText(text).then(
@@ -55,6 +98,20 @@ export default function ForMePage() {
       <SectionComponent h2text="">
         <h2>自分用ページ</h2>
         <p>よく使うカラーパレットなどをまとめておく</p>
+      </SectionComponent>
+
+      <SectionComponent h2text="PWAインストール">
+        <PWAInstallPrompt />
+      </SectionComponent>
+
+      <SectionComponent h2text="リンク集">
+        <ul className="underline list-disc list-inside">
+          <li>
+            <a href="https://hashin.net/pi-infra-core/v2" target="">
+              /pi-infra-core/v2
+            </a>
+          </li>
+        </ul>
       </SectionComponent>
 
       <SectionComponent h2text="カラーパレット">
