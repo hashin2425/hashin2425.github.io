@@ -12,19 +12,10 @@
       "type": "image/png"
     }
   ],
-  "form_factor": "narrow",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
-  "orientation": "any",
-  "scope": "/",
   "lang": "ja",
-  "dir": "ltr",
-  "categories": ["website", "portfolio"],
-  "permissions": [],
-  "background": {},
-  "content_scripts": [],
-  "browser_action": {},
-  "manifest_version": 3
+  "categories": ["website", "portfolio"]
 }
