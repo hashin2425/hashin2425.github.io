@@ -1,0 +1,21 @@
+{
+  "name": "hashin2425",
+  "version": "1.0.0",
+  "description": "A website of hashin2425",
+  "author": "hashin2425",
+  "homepage_url": "https://hashin.net",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "permissions": [],
+  "background": {},
+  "content_scripts": [],
+  "browser_action": {},
+  "manifest_version": 2
+}
