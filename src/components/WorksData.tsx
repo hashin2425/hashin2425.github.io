@@ -11,6 +11,7 @@ import workSolarCarMonitor from "../images/work-solar-car-monitor.png";
 import workLightWriter from "../images/work-light-writer.png";
 import workExplorerHP from "../images/work-explorers-hp.png";
 import workExplorersBackend from "../images/work-explorers-backend.png";
+import workRoboCupCalc from "../images/work-robocup-calc.png";
 
 const WorksData: WorksDataItems[] = [
   {
@@ -21,6 +22,8 @@ const WorksData: WorksDataItems[] = [
     productionUrl: "https://unityroom.com/games/midsummer-festa",
     techList: ["Unity", "C Sharp"],
     priority: 90,
+    devStarted: "2023年08月",
+    devPeriod: "2ヶ月",
   },
   {
     title: "「どうこむ」和大の食堂混雑度アプリ",
@@ -29,6 +32,8 @@ const WorksData: WorksDataItems[] = [
     productionUrl: "https://cafe.applii-wu.net/",
     techList: ["Flask", "Python", "Raspberry Pi", "Azure App Service", "Azure Cosmos DB", "Azure Functions", "Azure SQL Database", "Vue.js", "FastAPI"],
     priority: 95,
+    devStarted: "2023年06月",
+    devPeriod: "（継続中）",
   },
   {
     title: "「AppLii」ホームページ",
@@ -38,6 +43,8 @@ const WorksData: WorksDataItems[] = [
     productionUrl: "https://applii-wu.net/",
     techList: ["Vue.js", "GitHub Pages"],
     priority: 85,
+    devStarted: "2024年01月",
+    devPeriod: "1ヶ月",
   },
   {
     title: "ソーラーカー監視ソフトウェア",
@@ -47,6 +54,8 @@ const WorksData: WorksDataItems[] = [
     productionUrl: "https://github.com/hashin2425/SolarCarSensorMonitor/releases",
     techList: ["Python", "JavaScript"],
     priority: 0,
+    devStarted: "2023年05月",
+    devPeriod: "2週間",
   },
   {
     title: "ポートフォリオサイト",
@@ -56,6 +65,8 @@ const WorksData: WorksDataItems[] = [
     productionUrl: "https://hashin2425.github.io/",
     techList: ["React", "TypeScript", "Tailwind CSS", "GitHub Pages"],
     priority: 0,
+    devStarted: "2024年03月",
+    devPeriod: "（継続中）",
   },
   {
     title: "和大の空き教室検索システム",
@@ -65,6 +76,8 @@ const WorksData: WorksDataItems[] = [
     productionUrl: "https://applii-wu.net/find-free-classroom/",
     techList: ["TypeScript", "React", "Sass", "GitHub Actions"],
     priority: 0,
+    devStarted: "2024年06月",
+    devPeriod: "1週間",
   },
   {
     title: "light-writer",
@@ -74,6 +87,8 @@ const WorksData: WorksDataItems[] = [
     productionUrl: "https://github.com/hashin2425/light-writer/releases",
     techList: ["C Sharp", "Windows Form App"],
     priority: 0,
+    devStarted: "2024年07月",
+    devPeriod: "2日間",
   },
   {
     title: "自宅サーバー監視システム",
@@ -83,6 +98,8 @@ const WorksData: WorksDataItems[] = [
     productionUrl: "https://hashin.net/pi-infra-core/",
     techList: ["TypeScript", "React", "Node.js", "Python", "Azure Functions", "Azure Cosmos DB", "AWS Lambda", "AWS API Gateway", "AWS Dynamo DB"],
     priority: 0,
+    devStarted: "2024年07月",
+    devPeriod: "（継続中）",
   },
   {
     title: "「エクスプロラーズ」ホームページ",
@@ -92,6 +109,8 @@ const WorksData: WorksDataItems[] = [
     productionUrl: "https://prokonjo.com/",
     techList: ["Bootstrap"],
     priority: 0,
+    devStarted: "2024年05月",
+    devPeriod: "2週間",
   },
   {
     title: "「エクスプローラーズ」サーバーサイド",
@@ -99,7 +118,41 @@ const WorksData: WorksDataItems[] = [
     description: "スマホアプリ「エクスプロラーズ」のバックエンドシステムを開発しました。ユーザー管理やプレイ記録の保存などを行います。サーバーレスアーキテクチャで構築しました。",
     techList: ["Azure Functions", "Azure Cosmos DB", "Azure SQL Database"],
     priority: 0,
+    devStarted: "2024年5月",
+    devPeriod: "3ヶ月",
   },
+  {
+    title: "ロボカップ レスキューライン得点計算機",
+    img: workRoboCupCalc,
+    description: "ロボカップジュニアレスキューラインの得点計算機。得点を入力すると、自動で合計点を計算してくれます。HTML, JavaScrip, sassで作成し、GitHub Pagesで公開しています。",
+    githubUrl: "https://github.com/hashin2425/robocup_calc",
+    productionUrl: "https://hashin.net/robocup_calc/",
+    techList: ["JavaScript", "Sass", "GitHub Pages"],
+    priority: 0,
+    devStarted: "2021年12月",
+    devPeriod: "2週間",
+  },
+  {
+    title: "Unity 2Dゲーム",
+    description: "初めてテキストプログラミング言語を触るきっかけとなったゲーム制作。中学校の図書館からUnityの本を借りて、勉強を行いました。データはほとんど失ってしまいましたが…。",
+    techList: ["C-Sharp", "Unity"],
+    priority: 0,
+    devStarted: "2018年09月",
+    devPeriod: "3ヶ月",
+  },
+  /*
+  {
+    title: "",
+    img: imgTest,
+    description: "",
+    githubUrl: "",
+    productionUrl: "",
+    techList: [""],
+    priority: 0,
+    devStarted: "",
+    devPeriod: "",
+  },
+  */
 ];
 
 export default WorksData;

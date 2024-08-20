@@ -44,16 +44,18 @@ const OGPDisplay: React.FC<OGPDisplayProps> = ({ pageLink, imageLink, pageName, 
 
 interface WorksDataItems {
   title: string;
-  img: StaticImageData;
+  img?: StaticImageData;
   description: string;
   githubUrl?: string;
   productionUrl?: string;
   techList: string[];
   priority: number;
   isShow?: boolean;
+  devStarted: string;
+  devPeriod: string;
 }
 
-const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, githubUrl, productionUrl, techList, isShow }) => {
+const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, githubUrl, productionUrl, techList, isShow, devPeriod, devStarted }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => {
@@ -63,32 +65,40 @@ const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, github
   if (isShow === undefined) isShow = true;
 
   return (
-    <div className={`w-1/2 min-w-[400px] ${isShow ? "" : "hidden"}`}>
-      <div className="shadow-around hover:bg-gray-100 bg-white rounded-xl p-4 m-4" onClick={toggleExpand}>
-        <Image src={img} alt={title} width={500} height={500} />
-        <h3>{title}</h3>
-        <p className={isExpanded ? "" : "line-clamp-3"}>{description}</p>
-        <p className="flex items-center">
-          {githubUrl && (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-white gray-gradient rounded flex items-center p-1 mr-2 my-1">
-              <FaGithub className="text-xl inline mr-1" />
-              リポジトリ
-            </a>
-          )}
-          {productionUrl && (
-            <a href={productionUrl} target="_blank" rel="noopener noreferrer" className="text-white gray-gradient rounded flex items-center p-1 mr-2 my-1">
-              <CgWebsite className="text-xl inline mr-1" />
-              公開ページ
-            </a>
-          )}
-        </p>
-        <p className={"flex flex-wrap"}>
-          {techList.map((tech) => (
-            <Link key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="inline-block text-nowrap text-sm text-blue-500 hover:bg-blue-200 mr-1 my-1 px-2 border border-blue-500 rounded-md">
-              {tech}
-            </Link>
-          ))}
-        </p>
+    <div className={`w-full ${isShow ? "" : "hidden"}`}>
+      <div className="shadow-around hover:bg-gray-100 bg-white rounded-xl p-4 m-4 sm:flex" onClick={toggleExpand}>
+        <div className="sm:w-2/5">{img ? <Image src={img} alt={title} width={750} height={750} /> : <div className="w-full bg-gray-300" style={{ paddingBottom: "56.25%" }}></div>}</div>
+        <div className="sm:w-3/5 sm:pl-4">
+          <h3 className="sm:pt-0">{title}</h3>
+          <p className="">
+            <span className="text-sm">開始</span>
+            <span className="px-2 underline">{devStarted}</span>
+            <span className="text-sm">期間</span>
+            <span className="px-2 underline">{devPeriod}</span>
+          </p>
+          <p className={isExpanded ? "my-2" : "my-2 line-clamp-2"}>{description}</p>
+          <p className="flex items-center">
+            {githubUrl && (
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-white gray-gradient rounded flex items-center p-1 mr-2 my-1">
+                <FaGithub className="text-xl inline mr-1" />
+                リポジトリ
+              </a>
+            )}
+            {productionUrl && (
+              <a href={productionUrl} target="_blank" rel="noopener noreferrer" className="text-white gray-gradient rounded flex items-center p-1 mr-2 my-1">
+                <CgWebsite className="text-xl inline mr-1" />
+                公開ページ
+              </a>
+            )}
+          </p>
+          <p className={"flex flex-wrap"}>
+            {techList.map((tech) => (
+              <Link key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="inline-block text-nowrap text-sm text-blue-500 hover:bg-blue-200 mr-1 my-1 px-2 border border-blue-500 rounded-md">
+                {tech}
+              </Link>
+            ))}
+          </p>
+        </div>
       </div>
     </div>
   );

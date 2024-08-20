@@ -157,9 +157,9 @@ export default function Home() {
 
       <SectionComponent h2text="Works">
         <div className="flex flex-nowrap relative">
-          <div className="flex flex-nowrap overflow-x-auto">
+          <div className="overflow-x-auto">
             {WorksData.sort((a, b) => b.priority - a.priority)
-              .slice(0, 2)
+              .slice(0, 2) // Priorityが高いものを2つ表示
               .map((work) => (
                 <WorkDisplay key={work.title} {...work} isShow={true} />
               ))}
