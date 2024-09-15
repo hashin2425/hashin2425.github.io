@@ -96,7 +96,7 @@ export default function Home() {
             <tr>
               <th>サーバーサイド</th>
               <td>
-                <TechLinksGenerator techListText="FastAPI,Flask,Node.js" />
+                <TechLinksGenerator techListText="FastAPI,Flask,Node.js,Ruby on Rails" />
               </td>
             </tr>
             <tr>
@@ -176,8 +176,10 @@ export default function Home() {
         <p>和歌山大学クリエ「ITものづくりプロジェクト AppLii」を立ち上げ・副代表2年目</p>
         <OGPDisplay pageLink="https://applii-wu.net" imageLink="https://github.com/AppLii/AppLii.github.io/blob/release/docs/applii_ogp.png?raw=true" pageName="クリエ「ITものづくりプロジェクト AppLii」" pageDescription="ソフトウェア開発やプログラミング勉強会が主な活動内容です。和歌山大学のクリエ（学生主導のプロジェクト）であり、さまざまな支援を受けながら活動しています。" pageShortURL="applii-wu.net" />
         <h3>実務経験</h3>
-        <ul className="list-disc list-inside ">
-          <li>なし</li>
+        <p>詳細は履歴書などを参照いただくか、直接お尋ねください。</p>
+        {/* インターンの種別は、グループワーク型、実務型、セミナー型の3種類 */}
+        <ul className="list-disc list-inside mt-2">
+          <li>2024年09月：実務型インターンシップ（2週間 / フロントエンドの実装など）</li>
         </ul>
       </SectionComponent>
 
