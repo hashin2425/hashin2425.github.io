@@ -55,12 +55,18 @@ export default function Home() {
   return (
     <main>
       <SectionComponent h2text="About me">
-        <Image className="rounded-full object-cover shadow-lg border-4 border-white my-4" src={ProfilePicture} alt="hashin profile" width={100} height={100} />
-        <p>経済学部の2年生です。</p>
-        <p>Webアプリを中心に、人の役に立つプロダクトの開発に取り組んでいます。</p>
-        <p>このWebサイトは、タブレットかパソコンでの閲覧をおすすめします。</p>
-        <h3>SNS</h3>
-        <SocialLinks />
+        <div className="flex flex-col md:flex-row py-4">
+          <div className="mb-4 md:mb-0">
+            <Image className="rounded-lg shadow-lg border-4 border-white" src={ProfilePicture} alt="hashin profile" width={240} height={240} />
+          </div>
+          <div className="md:pl-8">
+            <p>しゅ（hashin）です。</p>
+            <p>Webアプリを中心に、さまざまな開発に取り組んでいます。技術を追求することよりも、人の役に立つことを目標としています。</p>
+            <p>アイコンは那智の滝と三重塔です。</p>
+            <h3>SNS</h3>
+            <SocialLinks />
+          </div>
+        </div>
       </SectionComponent>
 
       <SectionComponent h2text="Skills">
@@ -107,7 +113,7 @@ export default function Home() {
             </tr>
             <tr>
               <th>モバイルアプリ</th>
-              <td>（今後勉強の予定）</td>
+              <td>なし</td>
             </tr>
             <tr>
               <th>データ分析</th>
@@ -186,9 +192,8 @@ export default function Home() {
       <SectionComponent h2text="Interests">
         <h3>興味のあるキーワード</h3>
         <p>UI/UX設計、プログレッシブウェブアプリ（PWA）、サーバーレスアーキテクチャ、行動経済学、フィンテック、マーケティング</p>
-        <h3>興味のある技術</h3>
-        <p>（もとい、いずれ勉強したいやつ）</p>
-        <p>PHP、Go、Docker、React Native、Flutter</p>
+        <h3>興味のある技術（いずれ勉強したいやつ）</h3>
+        <p>PHP、Go、Docker、ユーザー認証系</p>
       </SectionComponent>
 
       <SectionComponent h2text="Articles">
@@ -219,7 +224,7 @@ export default function Home() {
         <p>Server: Raspberry Pi 4 (Linux PiOS)</p>
         <p>IoT: Raspberry Pi Pico WH</p>
         <h3>Others</h3>
-        <p>Cloud: Microsoft Azure / Amazon Web Service</p>
+        <p>Cloud: Microsoft Azure / Amazon Web Service / さくらインターネット</p>
         <p>Assistant: ChatGPT / Claude / GitHub Copilot</p>
       </SectionComponent>
     </main>
