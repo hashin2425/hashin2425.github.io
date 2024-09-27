@@ -96,7 +96,7 @@ const WorksData: WorksDataItems[] = [
     description: "自宅サーバー（Raspberry Pi）の監視システム。クラウド（Azure）上にシステムを構築しており、サーバーの状態やタスクの実行状況を監視しています。当初、Azureで構築していましたが、コールドスタートが長すぎたため、AWSへ移行しています。コスト面からサーバーレスの設計となっています。",
     githubUrl: "https://github.com/hashin2425/pi-infra-core",
     productionUrl: "https://hashin.net/pi-infra-core/",
-    techList: ["TypeScript", "React", "Node.js", "Python", "Azure Functions", "Azure Cosmos DB", "AWS Lambda", "AWS API Gateway", "AWS Dynamo DB"],
+    techList: ["TypeScript", "React", "Node.js", "Python", "Azure Functions", "Azure Cosmos DB", "AWS Lambda", "AWS API Gateway", "AWS Dynamo DB", "Redis", "Docker"],
     priority: 0,
     devStarted: "2024年07月",
     devPeriod: "（継続中）",

@@ -154,7 +154,7 @@ export default function Home() {
             <tr>
               <th>その他</th>
               <td>
-                <TechLinksGenerator techListText="Linux,Raspberry Pi" />
+                <TechLinksGenerator techListText="Linux,Raspberry Pi,Docker,Redis" />
               </td>
             </tr>
           </tbody>
@@ -203,6 +203,7 @@ export default function Home() {
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/0e6e0056035bc491a642" articleTitle="[Errno 3] Lookup timed outでCosmosDBに接続できない問題の解決方法【AppService】" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/dd337f8de0024d6bc354" articleTitle="[App Service] Flask Socket.ioでリアルタイム通信を安定化させる方法" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/b30dbed78d9323ce15fd" articleTitle="Azure Functionsでトリガーが認識されなくなったら、環境変数を確かめよう" />
+          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/b77186fad78e10304c8b" articleTitle="[App Service] Python環境でrequirements.txt通りにインストールされない不具合の解決方法" />
         </ul>
       </SectionComponent>
 
