@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const SectionComponent: React.FC<PropsWithChildren & { h2text: string }> = ({ children, h2text }) => {
   return (
-    <section className="py-6 px-6 odd:bg-gray-100 even:bg-white group">
+    <section className="py-6 px-6 odd:bg-gray-100 even:bg-white group" id={h2text}>
       <div className="max-w-[900px] mx-auto">
         <h2 className={"sticky top-8 group-odd:bg-gray-100 group-even:bg-white pb-0 z-[990]" + (h2text === "" ? " hidden" : "")}>{h2text}</h2>
         {children}

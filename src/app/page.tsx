@@ -40,12 +40,15 @@ function TechLinksGenerator({ techListText }: PropsWithChildren<{ techListText: 
   );
 }
 
-function ArticleLinkGenerator({ articleLink, articleTitle }: PropsWithChildren<{ articleLink: string; articleTitle: string }>) {
+function ArticleLinkGenerator({ articleLink, postedAt, articleTitle }: PropsWithChildren<{ articleLink: string; postedAt: string; articleTitle: string }>) {
   return (
     <li>
       <a className="block shadow-around hover:bg-gray-100 bg-white rounded-xl p-2 m-4" href={articleLink} target="_blank" rel="noopener noreferrer">
-        <IoIosDocument className="inline-block text-2xl align-middle" />
-        {articleTitle}
+        <div className="flex items-center">
+          <IoIosDocument className="inline-block text-base" />
+          <p className="whitespace-nowrap text-sm">{postedAt}</p>
+        </div>
+        <p className="text-base py-1">{articleTitle}</p>
       </a>
     </li>
   );
@@ -142,7 +145,7 @@ export default function Home() {
             <tr>
               <th>クラウド（その他）</th>
               <td>
-                <TechLinksGenerator techListText="Firebase Auth,Google App Script" />
+                <TechLinksGenerator techListText="Cloudflare,Firebase Auth,Google App Script" />
               </td>
             </tr>
             <tr>
@@ -154,7 +157,7 @@ export default function Home() {
             <tr>
               <th>その他</th>
               <td>
-                <TechLinksGenerator techListText="Linux,Raspberry Pi,Docker,Redis" />
+                <TechLinksGenerator techListText="Linux,Raspberry Pi,Docker,Redis,Nginx" />
               </td>
             </tr>
           </tbody>
@@ -194,16 +197,34 @@ export default function Home() {
         <p>UI/UX設計、プログレッシブウェブアプリ（PWA）、サーバーレスアーキテクチャ、行動経済学、フィンテック、マーケティング</p>
         <h3>興味のある技術（いずれ勉強したいやつ）</h3>
         <p>PHP、Go、Docker、ユーザー認証系</p>
+        <h3>勉強用リポジトリ</h3>
+        <p>実装練習や勉強用に使っているリポジトリの一覧です。</p>
+        <ul>
+          <li className="list-disc list-inside">
+            全般：
+            <Link className="text-blue-500 underline" href={"https://github.com/hashin2425/samples-and-practices"}>
+              hashin2425/samples-and-practices
+            </Link>
+          </li>
+          <li className="list-disc list-inside">
+            CI/CD：
+            <Link className="text-blue-500 underline" href={"https://github.com/hashin2425/better-deploy-sample"}>
+              hashin2425/better-deploy-sample
+            </Link>
+          </li>
+        </ul>
       </SectionComponent>
 
       <SectionComponent h2text="Articles">
-        <p>たまに、Qiitaに記事を投稿しています。普段の開発での困りごと（解決に時間がかかった不具合）などを記録しています。</p>
+        <p>Qiitaに技術記事を投稿しています。</p>
+        <p>主に、普段の開発での困りごと（解決に時間がかかった不具合）などを記録しています。</p>
         <ul>
-          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/55ccc5e4b18455d1158d" articleTitle="【Python】デフォルト引数値は、関数実行時に計算されるわけではないので注意" />
-          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/0e6e0056035bc491a642" articleTitle="[Errno 3] Lookup timed outでCosmosDBに接続できない問題の解決方法【AppService】" />
-          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/dd337f8de0024d6bc354" articleTitle="[App Service] Flask Socket.ioでリアルタイム通信を安定化させる方法" />
-          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/b30dbed78d9323ce15fd" articleTitle="Azure Functionsでトリガーが認識されなくなったら、環境変数を確かめよう" />
-          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/b77186fad78e10304c8b" articleTitle="[App Service] Python環境でrequirements.txt通りにインストールされない不具合の解決方法" />
+          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/8ea73327cf29a12510ec" postedAt="2024-10-21" articleTitle="PythonでGPT-4o-miniをサクッと使ってみた [Azure OpenAI]" />
+          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/b77186fad78e10304c8b" postedAt="2024-09-27" articleTitle="[App Service] Python環境でrequirements.txt通りにインストールされない不具合の解決方法" />
+          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/55ccc5e4b18455d1158d" postedAt="2024-03-14" articleTitle="【Python】デフォルト引数値は、関数実行時に計算されるわけではないので注意" />
+          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/0e6e0056035bc491a642" postedAt="2024-02-24" articleTitle="[Errno 3] Lookup timed outでCosmosDBに接続できない問題の解決方法【AppService】" />
+          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/dd337f8de0024d6bc354" postedAt="2023-12-06" articleTitle="[App Service] Flask Socket.ioでリアルタイム通信を安定化させる方法" />
+          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/b30dbed78d9323ce15fd" postedAt="2023-11-23" articleTitle="Azure Functionsでトリガーが認識されなくなったら、環境変数を確かめよう" />
         </ul>
       </SectionComponent>
 
