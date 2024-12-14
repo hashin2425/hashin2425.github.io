@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# hashin2425.github.io
 
-## Getting Started
+## 技術スタックとか
 
-First, run the development server:
+- React (Next.js)
+- GitHub Actions
+- GitHub Pages
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 開発方法
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### ホットリロードを起動する
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+実行：
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `cd src`
+- `npm run dev`
 
-## Learn More
+### デプロイ
 
-To learn more about Next.js, take a look at the following resources:
+`main`ブランチにプッシュすると、自動でデプロイが始まる。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## メモ書き
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`/docs` ディレクトリに `/docs` ディレクトリ内に `CNAME` ファイルを作成する必要があります。
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+詳細については、公式ドキュメントを参照してください：
+[GitHub Pages サイトのカスタムドメインの設定](https://docs.github.com/ja/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)

@@ -12,6 +12,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '**/*.js'
+      - '**/*.jsx'
+      - '**/*.ts'
+      - '**/*.tsx'
   workflow_dispatch:
 
 jobs:
