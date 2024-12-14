@@ -2,8 +2,10 @@
 
 import React, { PropsWithChildren, useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import { FaGithub } from "react-icons/fa";
+import { FaTwitter, FaGithub } from "react-icons/fa";
+import { IoIosDocument } from "react-icons/io";
 import { CgWebsite } from "react-icons/cg";
+import { SiQiita } from "react-icons/si";
 import Link from "next/link";
 
 const SectionComponent: React.FC<PropsWithChildren & { h2text: string }> = ({ children, h2text }) => {
@@ -104,5 +106,51 @@ const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, github
   );
 };
 
-export { SectionComponent, OGPDisplay, WorkDisplay };
+const SocialLinks = () => {
+  const socialLinks = [
+    { name: "GitHub", icon: FaGithub, url: "https://github.com/hashin2425", color: "text-gray-800" },
+    { name: "Twitter", icon: FaTwitter, url: "https://x.com/HashIn2425", color: "text-blue-400" },
+    { name: "Qiita", icon: SiQiita, url: "https://qiita.com/hashin2425", color: "text-green-500" },
+  ];
+
+  return (
+    <div className="flex space-x-6 my-1">
+      {socialLinks.map((link) => (
+        <Link key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className={`${link.color} hover:opacity-80 transition-opacity duration-300 flex justify-center content-center`}>
+          {link.icon && <link.icon className="text-4xl" />}
+          <span className="sr-only">{link.name}</span>
+        </Link>
+      ))}
+    </div>
+  );
+};
+
+function TechLinksGenerator({ techListText }: PropsWithChildren<{ techListText: string }>) {
+  const techList = techListText.split(",");
+  return (
+    <div className="flex flex-wrap">
+      {techList.map((tech) => (
+        <Link key={tech} href={`/works/?tag=${tech.replaceAll(" ", "-")}`} className="whitespace-nowrap text-blue-500 hover:bg-blue-200 m-1 px-2 border border-blue-500 rounded-md">
+          {tech}
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+function ArticleLinkGenerator({ articleLink, postedAt, articleTitle }: PropsWithChildren<{ articleLink: string; postedAt: string; articleTitle: string }>) {
+  return (
+    <li>
+      <a className="block shadow-around hover:bg-gray-100 bg-white rounded-xl p-2 m-4" href={articleLink} target="_blank" rel="noopener noreferrer">
+        <div className="flex items-center">
+          <IoIosDocument className="inline-block text-base" />
+          <p className="whitespace-nowrap text-sm">{postedAt}</p>
+        </div>
+        <p className="text-base py-1">{articleTitle}</p>
+      </a>
+    </li>
+  );
+}
+
+export { SectionComponent, OGPDisplay, WorkDisplay, SocialLinks, TechLinksGenerator, ArticleLinkGenerator };
 export type { WorksDataItems };
