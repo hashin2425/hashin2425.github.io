@@ -188,7 +188,7 @@ export default function Home() {
         <p>詳細は履歴書などを参照いただくか、直接お尋ねください。</p>
         {/* インターンの種別は、グループワーク型、実務型、セミナー型の3種類 */}
         <ul className="list-disc list-inside mt-2">
-          <li>2024年09月：実務型インターンシップ（2週間 / フロントエンドの実装など）</li>
+          <li>2024年09月：実務型インターンシップ（2週間 / フロントエンドの実装など / Ruby on Rails）</li>
         </ul>
       </SectionComponent>
 
@@ -218,11 +218,13 @@ export default function Home() {
       <SectionComponent h2text="Articles">
         <p>Qiitaに技術記事を投稿しています。</p>
         <p>主に、普段の開発での困りごと（解決に時間がかかった不具合）などを記録しています。</p>
-        <ul>
+        <ul className="pt-4">
+          <li>2024</li>
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/8ea73327cf29a12510ec" postedAt="2024-10-21" articleTitle="PythonでGPT-4o-miniをサクッと使ってみた [Azure OpenAI]" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/b77186fad78e10304c8b" postedAt="2024-09-27" articleTitle="[App Service] Python環境でrequirements.txt通りにインストールされない不具合の解決方法" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/55ccc5e4b18455d1158d" postedAt="2024-03-14" articleTitle="【Python】デフォルト引数値は、関数実行時に計算されるわけではないので注意" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/0e6e0056035bc491a642" postedAt="2024-02-24" articleTitle="[Errno 3] Lookup timed outでCosmosDBに接続できない問題の解決方法【AppService】" />
+          <li>2023</li>
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/dd337f8de0024d6bc354" postedAt="2023-12-06" articleTitle="[App Service] Flask Socket.ioでリアルタイム通信を安定化させる方法" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/b30dbed78d9323ce15fd" postedAt="2023-11-23" articleTitle="Azure Functionsでトリガーが認識されなくなったら、環境変数を確かめよう" />
         </ul>
@@ -246,7 +248,7 @@ export default function Home() {
         <p>Server: Raspberry Pi 4 (Linux PiOS)</p>
         <p>IoT: Raspberry Pi Pico WH</p>
         <h3>Others</h3>
-        <p>Cloud: Microsoft Azure / Amazon Web Service / さくらインターネット</p>
+        <p>Cloud: Microsoft Azure / Amazon Web Service / さくらのVPS</p>
         <p>Assistant: ChatGPT / Claude / GitHub Copilot</p>
       </SectionComponent>
     </main>
