@@ -129,6 +129,9 @@ export default function HistoryPage() {
   return (
     <main>
       <p className="p-8">書きかけのページ</p>
+      <YearSectionComponent year={2025}>
+        <MonthSectionComponent year={2025} month={1}></MonthSectionComponent>
+      </YearSectionComponent>
       <YearSectionComponent year={2024}>
         <MonthSectionComponent year={2024} month={12}></MonthSectionComponent>
         <MonthSectionComponent year={2024} month={11}></MonthSectionComponent>
