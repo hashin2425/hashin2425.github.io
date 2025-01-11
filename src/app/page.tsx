@@ -169,19 +169,21 @@ export default function Home() {
       <SectionComponent h2text="Articles">
         <p>Qiitaに技術記事を投稿しています。</p>
         <p>主に、普段の開発での困りごと（解決に時間がかかった不具合）などを記録しています。</p>
-        <ul className="pt-4 overflow-y-auto">
-          <li>2025</li>
-          <li className="p-6">None</li>
-          <li>2024</li>
+        <ul className="pt-4 overflow-y-auto max-h-96">
+          <li>2025年</li>
+          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/d038e0d3de61e51ee3e0" postedAt="2025-01-10" articleTitle="実はGitHub Copilotに前提情報を渡すことができる (.github/copilot-instructions.md)" />
+          <li>2024年（6本）</li>
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/a2287f77d417faa5b2bc" postedAt="2024-12-26" articleTitle="【Python】Webアプリ開発におけるタイムゾーンの扱い方・注意点（datetime / zoneinfo）" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/21ffe5bfd3cd1fbfd64d" postedAt="2024-12-23" articleTitle="【オススメしない】Microsoft Azureでドメインを買うと、どんな感じ？ (App Service ドメイン)" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/8ea73327cf29a12510ec" postedAt="2024-10-21" articleTitle="PythonでGPT-4o-miniをサクッと使ってみた [Azure OpenAI]" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/b77186fad78e10304c8b" postedAt="2024-09-27" articleTitle="[App Service] Python環境でrequirements.txt通りにインストールされない不具合の解決方法" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/55ccc5e4b18455d1158d" postedAt="2024-03-14" articleTitle="【Python】デフォルト引数値は、関数実行時に計算されるわけではないので注意" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/0e6e0056035bc491a642" postedAt="2024-02-24" articleTitle="[Errno 3] Lookup timed outでCosmosDBに接続できない問題の解決方法【AppService】" />
-          <li>2023</li>
+          <li>2023年（2本）</li>
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/dd337f8de0024d6bc354" postedAt="2023-12-06" articleTitle="[App Service] Flask Socket.ioでリアルタイム通信を安定化させる方法" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/b30dbed78d9323ce15fd" postedAt="2023-11-23" articleTitle="Azure Functionsでトリガーが認識されなくなったら、環境変数を確かめよう" />
+          <li>2022年（0本）</li>
+          <li className="p-6">None</li>
         </ul>
       </SectionComponent>
 
