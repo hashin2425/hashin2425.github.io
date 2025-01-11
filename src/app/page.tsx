@@ -4,6 +4,7 @@ import React from "react";
 import { SectionComponent, OGPDisplay, WorkDisplay, SocialLinks, TechLinksGenerator, ArticleLinkGenerator } from "../components/Utils";
 import WorksData from "../components/WorksData";
 import Link from "next/link";
+import ContributionsGraph from "@/components/ContributionsGraph";
 
 export default function Home() {
   return (
@@ -141,6 +142,11 @@ export default function Home() {
         <ul className="list-disc list-inside mt-2">
           <li>2024年09月：実務型インターンシップ（2週間 / フロントエンドの実装など / Ruby on Rails）</li>
         </ul>
+      </SectionComponent>
+
+      <SectionComponent h2text="Contributions">
+        <p>GitHubのコントリビューショングラフです。</p>
+        <ContributionsGraph />
       </SectionComponent>
 
       <SectionComponent h2text="Interests">
