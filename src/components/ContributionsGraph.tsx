@@ -15,7 +15,8 @@ type StatDataType = {
 
 const StatData: { [year: number]: { [month: number]: { commitCount: number; prCount: number; issueCount: number } } } = {
   2025: {
-    1: { commitCount: 0, prCount: 0, issueCount: 0 },
+    2: { commitCount: 0, prCount: 0, issueCount: 0 },
+    1: { commitCount: 95, prCount: 8, issueCount: 11 },
   },
   2024: {
     12: { commitCount: 107, prCount: 5, issueCount: 2 },
