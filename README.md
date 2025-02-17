@@ -25,3 +25,12 @@
 
 詳細については、公式ドキュメントを参照してください：
 [GitHub Pages サイトのカスタムドメインの設定](https://docs.github.com/ja/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
+
+## アップデート
+
+```sh
+npx npm-check-updates -u
+npm install
+npm ci
+npm run build
+```
