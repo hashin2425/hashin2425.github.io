@@ -151,6 +151,17 @@ const WorksData: WorksDataItems[] = [
     devStarted: "2018年09月",
     devPeriod: "3ヶ月",
   },
+  {
+    title: "PictoWrite｜画像AI英語学習Webアプリ",
+    img: imgTest,
+    description: "画像を見ながら英文を書いて説明することで、ライティングスキルを向上させるWebアプリです。入力した英文に基づいてAIが画像を生成するので、説明不足な部分を直していくことによって詳細に説明する力が身につきます。",
+    githubUrl: "https://github.com/hashin2425/relic-contest-2024",
+    productionUrl: "https://eng-learn-ai.chashin.net/",
+    techList: ["Python", "FastAPI", "React", "Next.js", "Linux", "Docker", "Nginx", "Mongo DB"],
+    priority: 90,
+    devStarted: "2024年10月",
+    devPeriod: "（継続中）",
+  },
   /*
   {
     title: "",
