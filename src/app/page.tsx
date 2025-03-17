@@ -30,7 +30,12 @@ export default function Home() {
           <tbody>
             <tr>
               <th>競プロ</th>
-              <td>AtCoder 緑コーダー</td>
+              <td>
+                AtCoder 緑コーダー
+                <Link href={"https://atcoder.jp/users/HashIn2425"}>
+                  <span className="text-blue-500 underline"> (HashIn2425)</span>
+                </Link>
+              </td>
             </tr>
             <tr>
               <th>保有資格</th>
@@ -136,11 +141,15 @@ export default function Home() {
         <h3>団体経験</h3>
         <p>和歌山大学クリエ「ITものづくりプロジェクト AppLii」を立ち上げ・副代表2年目</p>
         <OGPDisplay pageLink="https://applii-wu.net" imageLink="https://github.com/AppLii/AppLii.github.io/blob/release/docs/applii_ogp.png?raw=true" pageName="クリエ「ITものづくりプロジェクト AppLii」" pageDescription="ソフトウェア開発やプログラミング勉強会が主な活動内容です。和歌山大学のクリエ（学生主導のプロジェクト）であり、さまざまな支援を受けながら活動しています。" pageShortURL="applii-wu.net" />
-        <h3>実務経験</h3>
+        <h3 className="pt-8">受賞経験</h3>
+        <p>詳細は履歴書などを参照いただくか、直接お尋ねください。</p>
+        <ul className="list-disc list-inside mt-2">
+        </ul>
+        <h3 className="pt-8">実務経験</h3>
         <p>詳細は履歴書などを参照いただくか、直接お尋ねください。</p>
         {/* インターンの種別は、グループワーク型、実務型、セミナー型の3種類 */}
         <ul className="list-disc list-inside mt-2">
-          <li>2024年09月：実務型インターンシップ（2週間 / フロントエンドの実装など / Ruby on Rails）</li>
+          <li>2024年09月：実務型インターンシップ（6ヶ月 / フロントエンドの実装など / Ruby on Rails）</li>
         </ul>
       </SectionComponent>
 
@@ -151,9 +160,9 @@ export default function Home() {
 
       <SectionComponent h2text="Interests">
         <h3>興味のあるキーワード</h3>
-        <p>UI/UX設計、プログレッシブウェブアプリ（PWA）、サーバーレスアーキテクチャ、行動経済学、フィンテック、マーケティング</p>
+        <p>UI/UX設計、CI/CD、サーバーレスアーキテクチャ、行動経済学、会計、フィンテック、プログレッシブウェブアプリ（PWA）</p>
         <h3>興味のある技術（いずれ勉強したいやつ）</h3>
-        <p>PHP、Go、Docker、ユーザー認証系</p>
+        <p>PHP、Go、ユーザー認証系</p>
         <h3>勉強用リポジトリ</h3>
         <p>実装練習や勉強用に使っているリポジトリの一覧です。</p>
         <ul>
