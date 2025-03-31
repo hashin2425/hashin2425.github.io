@@ -15,10 +15,10 @@ export default function Home() {
             <Image className="rounded-lg shadow-lg border-4 border-white" src={ProfilePicture} alt="hashin profile" width={240} height={240} />
           </div>
           <div className="md:pl-8">
-            <p>しゅ（hashin）です。</p>
+            <p>hashinです。</p>
             <p>Webアプリを中心に、さまざまな開発に取り組んでいます。技術を追求することよりも、人の役に立つことを目標としています。</p>
             <p>アイコンは那智の滝と三重塔です。</p>
-            <h3>SNS</h3>
+            <h3>各種リンク</h3>
             <SocialLinks />
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function Home() {
             <tr>
               <th>クラウド（その他）</th>
               <td>
-                <TechLinksGenerator techListText="Cloudflare,Firebase Auth,Google App Script" />
+                <TechLinksGenerator techListText="Cloudflare,Firebase Auth,Google App Script,さくらのVPS" />
               </td>
             </tr>
             <tr>
@@ -139,12 +139,12 @@ export default function Home() {
 
       <SectionComponent h2text="Experiences">
         <h3>団体経験</h3>
-        <p>和歌山大学クリエ「ITものづくりプロジェクト AppLii」を立ち上げ・副代表2年目</p>
+        <p>和歌山大学クリエ「ITものづくりプロジェクト AppLii」を2023年6月に立ち上げました。</p>
+        <p>副代表として2年目も活動を継続しています。団体メンバー向けプログラミング講習会の企画・実施や、大学内利用者を対象としたアプリケーション開発をリードしました。</p>
         <OGPDisplay pageLink="https://applii-wu.net" imageLink="https://github.com/AppLii/AppLii.github.io/blob/release/docs/applii_ogp.png?raw=true" pageName="クリエ「ITものづくりプロジェクト AppLii」" pageDescription="ソフトウェア開発やプログラミング勉強会が主な活動内容です。和歌山大学のクリエ（学生主導のプロジェクト）であり、さまざまな支援を受けながら活動しています。" pageShortURL="applii-wu.net" />
         <h3 className="pt-8">受賞経験</h3>
         <p>詳細は履歴書などを参照いただくか、直接お尋ねください。</p>
-        <ul className="list-disc list-inside mt-2">
-        </ul>
+        <ul className="list-disc list-inside mt-2"></ul>
         <h3 className="pt-8">実務経験</h3>
         <p>詳細は履歴書などを参照いただくか、直接お尋ねください。</p>
         {/* インターンの種別は、グループワーク型、実務型、セミナー型の3種類 */}
