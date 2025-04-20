@@ -108,17 +108,22 @@ const WorkDisplay: React.FC<WorksDataItems> = ({ title, img, description, github
 
 const SocialLinks = () => {
   const socialLinks = [
-    { name: "GitHub", icon: FaGithub, url: "https://github.com/hashin2425", color: "text-gray-800" },
-    { name: "Twitter", icon: FaTwitter, url: "https://x.com/HashIn2425", color: "text-blue-400" },
-    { name: "Qiita", icon: SiQiita, url: "https://qiita.com/hashin2425", color: "text-green-500" },
+    { name: "Qiita", icon: SiQiita, url: "https://qiita.com/hashin2425", color: "bg-green-500", innerText: "技術ブログを投稿しています。" },
+    { name: "GitHub", icon: FaGithub, url: "https://github.com/hashin2425", color: "bg-gray-800", innerText: "一部リポジトリを公開しています。" },
+    { name: "Twitter", icon: FaTwitter, url: "https://x.com/HashIn2425", color: "bg-blue-400", innerText: "ご連絡はDMまでお願いいたします。" },
   ];
 
   return (
-    <div className="flex space-x-6 my-1">
+    <div className="my-1">
       {socialLinks.map((link) => (
-        <Link key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className={`${link.color} hover:opacity-80 transition-opacity duration-300 flex justify-center content-center`}>
-          {link.icon && <link.icon className="text-4xl" />}
-          <span className="sr-only">{link.name}</span>
+        <Link key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className={`flex items-center bg-white rounded-xl shadow-around mb-4`}>
+          <div className={`h-full w-16 p-2 ${link.color} flex items-center justify-center rounded-l-xl`}>
+            <link.icon className="text-4xl text-white" />
+          </div>
+          <div className="">
+            <span className={`text-xl font-bold px-2 w-20`}>{link.name}</span>
+            <span className="ml-1 pr-4">{link.innerText}</span>
+          </div>
         </Link>
       ))}
     </div>
