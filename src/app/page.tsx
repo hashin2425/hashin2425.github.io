@@ -43,85 +43,128 @@ export default function Home() {
             </tr>
           </tbody>
         </table>
-        <h3>技術スタック</h3>
-        <p>それぞれの技術をクリックすると、その技術で開発したプロダクトを閲覧できます。</p>
-        <table className="responsive-table">
-          <tbody>
-            <tr>
-              <th>プログラミング言語</th>
-              <td>
-                <TechLinksGenerator techListText="Python,JavaScript,TypeScript,C Sharp,Ruby" />
-              </td>
-            </tr>
-            <tr>
-              <th>フロントエンド</th>
-              <td>
-                <TechLinksGenerator techListText="Vue.js,React,Tailwind CSS,Sass" />
-              </td>
-            </tr>
-            <tr>
-              <th>サーバーサイド</th>
-              <td>
-                <TechLinksGenerator techListText="FastAPI,Flask,Node.js,Ruby on Rails" />
-              </td>
-            </tr>
-            <tr>
-              <th>デスクトップアプリ</th>
-              <td>
-                <TechLinksGenerator techListText="Windows Form App" />
-              </td>
-            </tr>
-            <tr>
-              <th>モバイルアプリ</th>
-              <td>なし</td>
-            </tr>
-            <tr>
-              <th>データ分析</th>
-              <td>
-                <TechLinksGenerator techListText="Jupyter Notebook,Pandas" />
-              </td>
-            </tr>
-            <tr>
-              <th>ゲーム開発</th>
-              <td>
-                <TechLinksGenerator techListText="Unity" />
-              </td>
-            </tr>
-            <tr>
-              <th>クラウド（Azure）</th>
-              <td>
-                <TechLinksGenerator techListText="Azure App Service,Azure Functions,Azure Cosmos DB,Azure SQL Database" />
-              </td>
-            </tr>
-            <tr>
-              <th>クラウド（AWS）</th>
-              <td>
-                <TechLinksGenerator techListText="AWS Lambda,AWS API Gateway,AWS Dynamo DB" />
-              </td>
-            </tr>
-            <tr>
-              <th>クラウド（その他）</th>
-              <td>
-                <TechLinksGenerator techListText="Cloudflare,Firebase Auth,Google App Script,さくらのVPS" />
-              </td>
-            </tr>
-            <tr>
-              <th>CI/CD</th>
-              <td>
-                <TechLinksGenerator techListText="GitHub Actions" />
-              </td>
-            </tr>
-            <tr>
-              <th>その他</th>
-              <td>
-                <TechLinksGenerator techListText="Linux,Raspberry Pi,Docker,Redis,Nginx" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+
+        <div className="border-l-4 border-purple-500 my-2">
+          <h3 className="bg-purple-100 pl-2">技術スタック（実務経験あり）</h3>
+          <p className="pl-2">それぞれの技術をクリックすると、その技術で開発したプロダクトを閲覧できます。</p>
+          <table className="responsive-table">
+            <tbody>
+              <tr>
+                <th>プログラミング言語</th>
+                <td>
+                  <TechLinksGenerator techListText="JavaScript,TypeScript,Ruby" />
+                </td>
+              </tr>
+              <tr>
+                <th>フロントエンド</th>
+                <td>
+                  <TechLinksGenerator techListText="React,Tailwind CSS" />
+                </td>
+              </tr>
+              <tr>
+                <th>サーバーサイド</th>
+                <td>
+                  <TechLinksGenerator techListText="Node.js,Ruby on Rails" />
+                </td>
+              </tr>
+              <tr>
+                <th>クラウド</th>
+                <td>
+                  <TechLinksGenerator techListText="AWS Lambda" />
+                </td>
+              </tr>
+              <tr>
+                <th>その他</th>
+                <td>
+                  <TechLinksGenerator techListText="Docker" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="border-l-4 border-green-400 my-2">
+          <h3 className="bg-green-100 pl-2">技術スタック（個人開発にて使用）</h3>
+          <p className="pl-2">それぞれの技術をクリックすると、その技術で開発したプロダクトを閲覧できます。</p>
+          <table className="responsive-table">
+            <tbody>
+              <tr>
+                <th>プログラミング言語</th>
+                <td>
+                  <TechLinksGenerator techListText="Python,JavaScript,TypeScript,C Sharp,Ruby" />
+                </td>
+              </tr>
+              <tr>
+                <th>フロントエンド</th>
+                <td>
+                  <TechLinksGenerator techListText="Vue.js,React,Tailwind CSS,Sass" />
+                </td>
+              </tr>
+              <tr>
+                <th>サーバーサイド</th>
+                <td>
+                  <TechLinksGenerator techListText="FastAPI,Flask,Node.js,Ruby on Rails" />
+                </td>
+              </tr>
+              <tr>
+                <th>デスクトップアプリ</th>
+                <td>
+                  <TechLinksGenerator techListText="Windows Form App" />
+                </td>
+              </tr>
+              <tr>
+                <th>モバイルアプリ</th>
+                <td>なし</td>
+              </tr>
+              <tr>
+                <th>データ分析</th>
+                <td>
+                  <TechLinksGenerator techListText="Jupyter Notebook,Pandas" />
+                </td>
+              </tr>
+              <tr>
+                <th>ゲーム開発</th>
+                <td>
+                  <TechLinksGenerator techListText="Unity" />
+                </td>
+              </tr>
+              <tr>
+                <th>クラウド（Azure）</th>
+                <td>
+                  <TechLinksGenerator techListText="Azure App Service,Azure Functions,Azure Cosmos DB,Azure SQL Database" />
+                </td>
+              </tr>
+              <tr>
+                <th>クラウド（AWS）</th>
+                <td>
+                  <TechLinksGenerator techListText="AWS Lambda,AWS API Gateway,AWS Dynamo DB" />
+                </td>
+              </tr>
+              <tr>
+                <th>クラウド（その他）</th>
+                <td>
+                  <TechLinksGenerator techListText="Cloudflare,Firebase Auth,Google App Script,さくらのVPS" />
+                </td>
+              </tr>
+              <tr>
+                <th>CI/CD</th>
+                <td>
+                  <TechLinksGenerator techListText="GitHub Actions" />
+                </td>
+              </tr>
+              <tr>
+                <th>その他</th>
+                <td>
+                  <TechLinksGenerator techListText="Linux,Raspberry Pi,Docker,Redis,Nginx" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </SectionComponent>
 
       <SectionComponent h2text="Works">
+        <p>過去に開発したプロジェクトを紹介しています。</p>
         <div className="flex flex-nowrap relative">
           <div className="overflow-x-auto">
             {WorksData.sort((a, b) => b.priority - a.priority)
@@ -154,7 +197,7 @@ export default function Home() {
       </SectionComponent>
 
       <SectionComponent h2text="Contributions">
-        <p>GitHubのコントリビューショングラフです。</p>
+        <p>あらゆる開発プロジェクトに取り組んでおり、ほぼ毎日なにかしらのコードを書いています。</p>
         <ContributionsGraph />
       </SectionComponent>
 
