@@ -25,16 +25,17 @@ export default function Home() {
       </SectionComponent>
 
       <SectionComponent h2text="Skills">
-        <h3>色々</h3>
         <table className="responsive-table">
           <tbody>
             <tr>
               <th>競プロ</th>
               <td>
-                AtCoder 緑コーダー
-                <Link href={"https://atcoder.jp/users/HashIn2425"}>
-                  <span className="text-blue-500 underline"> (HashIn2425)</span>
-                </Link>
+                <p>AtCoder 緑コーダー（Algorithm: レート900, 2024年7月6日）</p>
+                <p>
+                  <Link href={"https://atcoder.jp/users/HashIn2425"}>
+                    <span className="text-blue-500 underline">ID: HashIn2425</span>
+                  </Link>
+                </p>
               </td>
             </tr>
             <tr>
