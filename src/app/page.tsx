@@ -24,6 +24,46 @@ export default function Home() {
         </div>
       </SectionComponent>
 
+      <SectionComponent h2text="[Pick UP!] Works">
+        <div className="mt-3 border-2 border-orange-500 bg-orange-50 rounded-3xl">
+          <div className="m-4">
+            <p>過去に制作したソフトウェア・Webサイトなどを紹介しています。</p>
+            <p>ぜひご覧ください！</p>
+            <div className="flex flex-nowrap relative">
+              <div className="overflow-x-auto">
+                {WorksData.sort((a, b) => b.priority - a.priority)
+                  .slice(0, 2) // Priorityが高いものを2つ表示
+                  .map((work) => (
+                    <WorkDisplay key={work.title} {...work} isShow={true} />
+                  ))}
+              </div>
+              <div className="absolute bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-gray-100 to-transparent pointer-events-none"></div>
+            </div>
+            <Link href={"/works"}>
+              <div className="text-center rounded-xl gray-gradient text-white p-4 my-4 shadow-xl">すべての作品を見る</div>
+            </Link>{" "}
+          </div>
+        </div>
+      </SectionComponent>
+
+      <SectionComponent h2text="Experiences">
+        <h3>団体経験</h3>
+        <p>和歌山大学クリエ「ITものづくりプロジェクト AppLii」を2023年6月に立ち上げました。</p>
+        <p>副代表として2年目も活動を継続しています。団体メンバー向けプログラミング講習会の企画・実施や、大学内利用者を対象としたアプリケーション開発をリードしました。</p>
+        <OGPDisplay pageLink="https://applii-wu.net" imageLink="https://github.com/AppLii/AppLii.github.io/blob/release/docs/applii_ogp.png?raw=true" pageName="クリエ「ITものづくりプロジェクト AppLii」" pageDescription="ソフトウェア開発やプログラミング勉強会が主な活動内容です。和歌山大学のクリエ（学生主導のプロジェクト）であり、さまざまな支援を受けながら活動しています。" pageShortURL="applii-wu.net" />
+        <h3 className="pt-8">受賞経験</h3>
+        <p>詳細は履歴書などを参照いただくか、直接お尋ねください。</p>
+        <ul className="list-disc list-inside mt-2">
+          <li>複数あり</li>
+        </ul>
+        <h3 className="pt-8">実務経験</h3>
+        <p>詳細は履歴書などを参照いただくか、直接お尋ねください。</p>
+        {/* インターンの種別は、グループワーク型、実務型、セミナー型の3種類 */}
+        <ul className="list-disc list-inside mt-2">
+          <li>2024年09月：実務型インターンシップ（6ヶ月 / フロントエンドの実装など / Ruby on Rails）</li>
+        </ul>
+      </SectionComponent>
+
       <SectionComponent h2text="Skills">
         <table className="responsive-table">
           <tbody>
@@ -48,153 +88,126 @@ export default function Home() {
         <div className="border-l-4 border-purple-500 my-2">
           <h3 className="bg-purple-100 pl-2">技術スタック（実務経験あり）</h3>
           <p className="pl-2">それぞれの技術をクリックすると、その技術で開発したプロダクトを閲覧できます。</p>
-          <table className="responsive-table">
-            <tbody>
-              <tr>
-                <th>プログラミング言語</th>
-                <td>
-                  <TechLinksGenerator techListText="JavaScript,TypeScript,Ruby" />
-                </td>
-              </tr>
-              <tr>
-                <th>フロントエンド</th>
-                <td>
-                  <TechLinksGenerator techListText="React,Tailwind CSS" />
-                </td>
-              </tr>
-              <tr>
-                <th>サーバーサイド</th>
-                <td>
-                  <TechLinksGenerator techListText="Node.js,Ruby on Rails" />
-                </td>
-              </tr>
-              <tr>
-                <th>クラウド</th>
-                <td>
-                  <TechLinksGenerator techListText="AWS Lambda" />
-                </td>
-              </tr>
-              <tr>
-                <th>その他</th>
-                <td>
-                  <TechLinksGenerator techListText="Docker" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <p className="pl-2">※ スクロールしてご覧ください。</p>
+          <div className="overflow-y-auto max-h-48">
+            <table className="responsive-table">
+              <tbody>
+                <tr>
+                  <th>プログラミング言語</th>
+                  <td>
+                    <TechLinksGenerator techListText="JavaScript,TypeScript,Ruby" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>フロントエンド</th>
+                  <td>
+                    <TechLinksGenerator techListText="React,Tailwind CSS" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>サーバーサイド</th>
+                  <td>
+                    <TechLinksGenerator techListText="Node.js,Ruby on Rails" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>クラウド</th>
+                  <td>
+                    <TechLinksGenerator techListText="AWS Lambda" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>その他</th>
+                  <td>
+                    <TechLinksGenerator techListText="Docker" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div className="border-l-4 border-green-400 my-2">
           <h3 className="bg-green-100 pl-2">技術スタック（個人開発にて使用）</h3>
           <p className="pl-2">それぞれの技術をクリックすると、その技術で開発したプロダクトを閲覧できます。</p>
-          <table className="responsive-table">
-            <tbody>
-              <tr>
-                <th>プログラミング言語</th>
-                <td>
-                  <TechLinksGenerator techListText="Python,JavaScript,TypeScript,C Sharp,Ruby" />
-                </td>
-              </tr>
-              <tr>
-                <th>フロントエンド</th>
-                <td>
-                  <TechLinksGenerator techListText="Vue.js,React,Tailwind CSS,Sass" />
-                </td>
-              </tr>
-              <tr>
-                <th>サーバーサイド</th>
-                <td>
-                  <TechLinksGenerator techListText="FastAPI,Flask,Node.js,Ruby on Rails" />
-                </td>
-              </tr>
-              <tr>
-                <th>デスクトップアプリ</th>
-                <td>
-                  <TechLinksGenerator techListText="Windows Form App" />
-                </td>
-              </tr>
-              <tr>
-                <th>モバイルアプリ</th>
-                <td>なし</td>
-              </tr>
-              <tr>
-                <th>データ分析</th>
-                <td>
-                  <TechLinksGenerator techListText="Jupyter Notebook,Pandas" />
-                </td>
-              </tr>
-              <tr>
-                <th>ゲーム開発</th>
-                <td>
-                  <TechLinksGenerator techListText="Unity" />
-                </td>
-              </tr>
-              <tr>
-                <th>クラウド（Azure）</th>
-                <td>
-                  <TechLinksGenerator techListText="Azure App Service,Azure Functions,Azure Cosmos DB,Azure SQL Database" />
-                </td>
-              </tr>
-              <tr>
-                <th>クラウド（AWS）</th>
-                <td>
-                  <TechLinksGenerator techListText="AWS Lambda,AWS API Gateway,AWS Dynamo DB" />
-                </td>
-              </tr>
-              <tr>
-                <th>クラウド（その他）</th>
-                <td>
-                  <TechLinksGenerator techListText="Cloudflare,Firebase Auth,Google App Script,さくらのVPS" />
-                </td>
-              </tr>
-              <tr>
-                <th>CI/CD</th>
-                <td>
-                  <TechLinksGenerator techListText="GitHub Actions" />
-                </td>
-              </tr>
-              <tr>
-                <th>その他</th>
-                <td>
-                  <TechLinksGenerator techListText="Linux,Raspberry Pi,Docker,Redis,Nginx" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </SectionComponent>
-
-      <SectionComponent h2text="Works">
-        <p>過去に開発したプロジェクトを紹介しています。</p>
-        <div className="flex flex-nowrap relative">
-          <div className="overflow-x-auto">
-            {WorksData.sort((a, b) => b.priority - a.priority)
-              .slice(0, 2) // Priorityが高いものを2つ表示
-              .map((work) => (
-                <WorkDisplay key={work.title} {...work} isShow={true} />
-              ))}
+          <p className="pl-2">※ スクロールしてご覧ください。</p>
+          <div className="overflow-y-auto max-h-48">
+            <table className="responsive-table">
+              <tbody>
+                <tr>
+                  <th>プログラミング言語</th>
+                  <td>
+                    <TechLinksGenerator techListText="Python,JavaScript,TypeScript,C Sharp,Ruby" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>フロントエンド</th>
+                  <td>
+                    <TechLinksGenerator techListText="Vue.js,React,Tailwind CSS,Sass" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>サーバーサイド</th>
+                  <td>
+                    <TechLinksGenerator techListText="FastAPI,Flask,Node.js,Ruby on Rails" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>デスクトップアプリ</th>
+                  <td>
+                    <TechLinksGenerator techListText="Windows Form App" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>モバイルアプリ</th>
+                  <td>なし</td>
+                </tr>
+                <tr>
+                  <th>データ分析</th>
+                  <td>
+                    <TechLinksGenerator techListText="Jupyter Notebook,Pandas" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>ゲーム開発</th>
+                  <td>
+                    <TechLinksGenerator techListText="Unity" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>クラウド（Azure）</th>
+                  <td>
+                    <TechLinksGenerator techListText="Azure App Service,Azure Functions,Azure Cosmos DB,Azure SQL Database" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>クラウド（AWS）</th>
+                  <td>
+                    <TechLinksGenerator techListText="AWS Lambda,AWS API Gateway,AWS Dynamo DB" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>クラウド（その他）</th>
+                  <td>
+                    <TechLinksGenerator techListText="Cloudflare,Firebase Auth,Google App Script,さくらのVPS" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>CI/CD</th>
+                  <td>
+                    <TechLinksGenerator techListText="GitHub Actions" />
+                  </td>
+                </tr>
+                <tr>
+                  <th>その他</th>
+                  <td>
+                    <TechLinksGenerator techListText="Linux,Raspberry Pi,Docker,Redis,Nginx" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div className="absolute bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-gray-100 to-transparent pointer-events-none"></div>
         </div>
-        <Link href={"/works"}>
-          <div className="text-center rounded-xl gray-gradient text-white p-4 my-4 shadow-xl">すべての作品を見る</div>
-        </Link>
-      </SectionComponent>
-
-      <SectionComponent h2text="Experiences">
-        <h3>団体経験</h3>
-        <p>和歌山大学クリエ「ITものづくりプロジェクト AppLii」を2023年6月に立ち上げました。</p>
-        <p>副代表として2年目も活動を継続しています。団体メンバー向けプログラミング講習会の企画・実施や、大学内利用者を対象としたアプリケーション開発をリードしました。</p>
-        <OGPDisplay pageLink="https://applii-wu.net" imageLink="https://github.com/AppLii/AppLii.github.io/blob/release/docs/applii_ogp.png?raw=true" pageName="クリエ「ITものづくりプロジェクト AppLii」" pageDescription="ソフトウェア開発やプログラミング勉強会が主な活動内容です。和歌山大学のクリエ（学生主導のプロジェクト）であり、さまざまな支援を受けながら活動しています。" pageShortURL="applii-wu.net" />
-        <h3 className="pt-8">受賞経験</h3>
-        <p>詳細は履歴書などを参照いただくか、直接お尋ねください。</p>
-        <ul className="list-disc list-inside mt-2"></ul>
-        <h3 className="pt-8">実務経験</h3>
-        <p>詳細は履歴書などを参照いただくか、直接お尋ねください。</p>
-        {/* インターンの種別は、グループワーク型、実務型、セミナー型の3種類 */}
-        <ul className="list-disc list-inside mt-2">
-          <li>2024年09月：実務型インターンシップ（6ヶ月 / フロントエンドの実装など / Ruby on Rails）</li>
-        </ul>
       </SectionComponent>
 
       <SectionComponent h2text="Contributions">
