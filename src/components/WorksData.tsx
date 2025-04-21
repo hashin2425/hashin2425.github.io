@@ -12,6 +12,7 @@ import workLightWriter from "../images/work-light-writer.png";
 import workExplorerHP from "../images/work-explorers-hp.png";
 import workExplorersBackend from "../images/work-explorers-backend.png";
 import workRoboCupCalc from "../images/work-robocup-calc.png";
+import workPictoWrite from "../images/work-picto-write.png";
 
 const WorksData: WorksDataItems[] = [
   {
@@ -48,14 +49,13 @@ const WorksData: WorksDataItems[] = [
   },
   {
     title: "実務型インターン（2024年09月～）",
-    img: imgTest,
-    description: "（準備中）",
+    description: "詳細は直接お尋ねください。",
     githubUrl: "",
     productionUrl: "",
     techList: ["Ruby", "Ruby on Rails", "React"],
     priority: 80,
     devStarted: "2024年09月",
-    devPeriod: "（準備中）",
+    devPeriod: "（継続中）",
   },
   {
     title: "ソーラーカー監視ソフトウェア",
@@ -153,12 +153,12 @@ const WorksData: WorksDataItems[] = [
   },
   {
     title: "PictoWrite｜画像AI英語学習Webアプリ",
-    img: imgTest,
+    img: workPictoWrite,
     description: "画像を見ながら英文を書いて説明することで、ライティングスキルを向上させるWebアプリです。入力した英文に基づいてAIが画像を生成するので、説明不足な部分を直していくことによって詳細に説明する力が身につきます。",
     githubUrl: "https://github.com/hashin2425/relic-contest-2024",
     productionUrl: "https://eng-learn-ai.chashin.net/",
     techList: ["Python", "FastAPI", "React", "Next.js", "Linux", "Docker", "Nginx", "Mongo DB"],
-    priority: 90,
+    priority: 94,
     devStarted: "2024年10月",
     devPeriod: "（継続中）",
   },
