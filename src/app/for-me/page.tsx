@@ -111,6 +111,11 @@ export default function ForMePage() {
               /pi-infra-core/v2
             </a>
           </li>
+          <li>
+            <a href="/coding-interview" target="">
+              /coding-interview
+            </a>
+          </li>
         </ul>
       </SectionComponent>
 
