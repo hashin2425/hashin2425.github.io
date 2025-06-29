@@ -141,6 +141,8 @@ const CodingInterviewTimer: React.FC = () => {
     const [showTimeInput, setShowTimeInput] = useState(false);
     const [inputMinutes, setInputMinutes] = useState('');
     const [inputSeconds, setInputSeconds] = useState('');
+    const [showResetConfirm, setShowResetConfirm] = useState(false);
+    const [resetConfirmStep, setResetConfirmStep] = useState(0);
 
     // 動的にタイムラインセグメントを生成
     const timelineSegments = useMemo(() => {
@@ -181,6 +183,26 @@ const CodingInterviewTimer: React.FC = () => {
         }
     };
 
+    const handleResetClick = () => {
+        setShowResetConfirm(true);
+        setResetConfirmStep(0);
+    };
+
+    const handleResetConfirm = () => {
+        if (resetConfirmStep === 0) {
+            setResetConfirmStep(1);
+        } else if (resetConfirmStep === 1) {
+            reset();
+            setShowResetConfirm(false);
+            setResetConfirmStep(0);
+        }
+    };
+
+    const handleResetCancel = () => {
+        setShowResetConfirm(false);
+        setResetConfirmStep(0);
+    };
+
     const currentSegment = getCurrentSegment();
     const progressPercentage = getProgressPercentage();
     const isTimeUp = state.elapsedTime >= state.totalDuration;
@@ -211,29 +233,67 @@ const CodingInterviewTimer: React.FC = () => {
                     </div>
 
                     {/* コントロールボタン */}
-                    <div className="flex justify-center gap-3 mb-2">
-                        {!state.isRunning ? (
-                            <Button onClick={start} color="green">
-                                開始
-                            </Button>
-                        ) : state.isPaused ? (
-                            <Button onClick={resume} color="blue">
-                                再開
-                            </Button>
-                        ) : (
-                            <Button onClick={pause} color="orange">
-                                一時停止
-                            </Button>
-                        )}
+                    <div className="flex justify-center items-center gap-3 mb-2 flex-wrap">
+                        {/* メインコントロールボタン */}
+                        <div className="flex gap-3">
+                            {!state.isRunning ? (
+                                <Button onClick={start} color="green">
+                                    開始
+                                </Button>
+                            ) : state.isPaused ? (
+                                <Button onClick={resume} color="blue">
+                                    再開
+                                </Button>
+                            ) : (
+                                <Button onClick={pause} color="orange">
+                                    一時停止
+                                </Button>
+                            )}
 
-                        <Button onClick={reset} color="red">
-                            リセット
-                        </Button>
+                            <Button onClick={() => setShowTimeInput(!showTimeInput)} color="gray">
+                                全体時間設定
+                            </Button>
+                        </div>
 
-                        <Button onClick={() => setShowTimeInput(!showTimeInput)} color="gray">
-                            全体時間設定
-                        </Button>
+                        {/* リセットボタン（分離して警告スタイル） */}
+                        <div className="ml-4 pl-4 border-l border-gray-300">
+                            <button
+                                onClick={handleResetClick}
+                                className="px-3 py-1.5 bg-red-100 hover:bg-red-200 text-red-700 hover:text-red-800 border border-red-300 hover:border-red-400 text-sm font-medium rounded-md transition-all duration-200 hover:shadow-md active:bg-red-300"
+                                title="注意: タイマーをリセットします"
+                            >
+                                リセット
+                            </button>
+                        </div>
                     </div>
+
+                    {/* リセット確認ダイアログ */}
+                    {showResetConfirm && (
+                        <div className="mt-3 bg-red-50 border-2 border-red-200 rounded-lg p-4">
+                            <div className="text-center">
+                                <div className="text-red-700 font-semibold mb-2">
+                                    タイマーをリセットしますか？
+                                </div>
+                                <div className="flex justify-center gap-3">
+                                    <button
+                                        onClick={handleResetConfirm}
+                                        className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${resetConfirmStep === 0
+                                                ? "bg-red-500 hover:bg-red-600 text-white"
+                                                : "bg-red-600 hover:bg-red-700 text-white animate-pulse"
+                                            }`}
+                                    >
+                                        {resetConfirmStep === 0 ? "はい、リセットします" : "最終確認：実行する"}
+                                    </button>
+                                    <button
+                                        onClick={handleResetCancel}
+                                        className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white text-sm font-medium rounded-md transition-all"
+                                    >
+                                        キャンセル
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                     {/* 時間調整入力 */}
                     {showTimeInput && (
