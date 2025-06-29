@@ -186,8 +186,8 @@ const CodingInterviewTimer: React.FC = () => {
     const isTimeUp = state.elapsedTime >= state.totalDuration;
 
     return (
-        <div className="h-screen bg-gray-50 p-4 overflow-hidden">
-            <div className="max-w-4xl mx-auto h-full flex flex-col">
+        <div className="bg-gray-50 p-4 overflow-hidden">
+            <div className="max-w-4xl mx-auto flex flex-col">
                 {/* ヘッダー */}
                 <div className="bg-white rounded-lg shadow-lg p-4 mb-4 min-h-36 max-h-40">
                     {/* 現在の時間表示 */}
@@ -290,7 +290,7 @@ const CodingInterviewTimer: React.FC = () => {
                     </div>
 
                     {/* セグメント一覧 */}
-                    <div className="grid grid-cols-1 gap-2 max-h-80 overflow-y-auto">
+                    <div className="grid grid-cols-1 gap-2 overflow-y-auto">
                         {timelineSegments.map((segment, index) => {
                             const isActive = currentSegment?.name === segment.name;
                             const isPassed = state.elapsedTime > segment.endTime;
