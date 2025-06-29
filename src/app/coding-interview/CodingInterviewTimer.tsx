@@ -189,7 +189,7 @@ const CodingInterviewTimer: React.FC = () => {
         <div className="bg-gray-50 p-4 overflow-hidden">
             <div className="max-w-4xl mx-auto flex flex-col">
                 {/* ヘッダー */}
-                <div className="bg-white rounded-lg shadow-lg p-4 mb-4 min-h-36 max-h-40">
+                <div className="bg-white rounded-lg shadow-lg p-4 mb-4 min-h-36">
                     {/* 現在の時間表示 */}
                     <div className="text-center mb-3">
                         <div className="text-4xl font-mono font-bold text-gray-800 mb-2">
