@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { TimerState, UseTimerReturn, TOTAL_DURATION } from "@/types/timer";
+import { TimerState, UseTimerReturn, DEFAULT_TOTAL_DURATION } from "@/types/timer";
 
 const STORAGE_KEY = "coding-interview-timer";
 
@@ -10,6 +10,7 @@ export const useTimer = (): UseTimerReturn => {
     elapsedTime: 0,
     startTime: null,
     pausedTime: 0,
+    totalDuration: DEFAULT_TOTAL_DURATION,
   });
 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -23,6 +24,11 @@ export const useTimer = (): UseTimerReturn => {
       if (saved) {
         const parsedState: TimerState = JSON.parse(saved);
 
+        // 後方互換性: totalDurationが存在しない場合はデフォルト値を設定
+        if (!parsedState.totalDuration) {
+          parsedState.totalDuration = DEFAULT_TOTAL_DURATION;
+        }
+
         // 実行中の場合、現在時刻から経過時間を再計算
         if (parsedState.isRunning && !parsedState.isPaused && parsedState.startTime) {
           const now = Date.now();
@@ -30,7 +36,7 @@ export const useTimer = (): UseTimerReturn => {
 
           setState({
             ...parsedState,
-            elapsedTime: Math.min(realElapsed, TOTAL_DURATION),
+            elapsedTime: Math.min(realElapsed, parsedState.totalDuration),
           });
         } else {
           setState(parsedState);
@@ -61,15 +67,15 @@ export const useTimer = (): UseTimerReturn => {
 
       const now = Date.now();
       const elapsed = Math.floor((now - prevState.startTime - prevState.pausedTime) / 1000);
-      const newElapsed = Math.min(elapsed, TOTAL_DURATION);
+      const newElapsed = Math.min(elapsed, prevState.totalDuration);
 
       const newState = {
         ...prevState,
         elapsedTime: newElapsed,
       };
 
-      // 30分経過したら自動停止
-      if (newElapsed >= TOTAL_DURATION) {
+      // 設定時間経過したら自動停止
+      if (newElapsed >= prevState.totalDuration) {
         newState.isRunning = false;
       }
 
@@ -87,11 +93,12 @@ export const useTimer = (): UseTimerReturn => {
       elapsedTime: 0,
       startTime: now,
       pausedTime: 0,
+      totalDuration: state.totalDuration,
     };
 
     setState(newState);
     saveToStorage(newState);
-  }, [saveToStorage]);
+  }, [saveToStorage, state.totalDuration]);
 
   // タイマー一時停止
   const pause = useCallback(() => {
@@ -135,6 +142,7 @@ export const useTimer = (): UseTimerReturn => {
       elapsedTime: 0,
       startTime: null,
       pausedTime: 0,
+      totalDuration: state.totalDuration,
     };
 
     setState(newState);
@@ -144,13 +152,13 @@ export const useTimer = (): UseTimerReturn => {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
-  }, [saveToStorage]);
+  }, [saveToStorage, state.totalDuration]);
 
   // 手動時間設定
   const setTime = useCallback(
     (seconds: number) => {
       setState((prevState) => {
-        const clampedSeconds = Math.max(0, Math.min(seconds, TOTAL_DURATION));
+        const clampedSeconds = Math.max(0, Math.min(seconds, prevState.totalDuration));
 
         let newState: TimerState;
 
@@ -171,6 +179,24 @@ export const useTimer = (): UseTimerReturn => {
             elapsedTime: clampedSeconds,
           };
         }
+
+        saveToStorage(newState);
+        return newState;
+      });
+    },
+    [saveToStorage]
+  );
+
+  // 総時間設定
+  const setTotalDuration = useCallback(
+    (seconds: number) => {
+      setState((prevState) => {
+        const newState: TimerState = {
+          ...prevState,
+          totalDuration: seconds,
+          // 現在の経過時間が新しい総時間を超える場合は調整
+          elapsedTime: Math.min(prevState.elapsedTime, seconds),
+        };
 
         saveToStorage(newState);
         return newState;
@@ -208,5 +234,6 @@ export const useTimer = (): UseTimerReturn => {
     resume,
     reset,
     setTime,
+    setTotalDuration,
   };
 };

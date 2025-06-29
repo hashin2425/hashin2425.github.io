@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useTimer } from '@/hooks/useTimer';
-import { TIMELINE_SEGMENTS, TOTAL_DURATION, TimelineSegment } from '@/types/timer';
+import { generateTimelineSegments, TimelineSegment } from '@/types/timer';
 
 // 共通ボタンコンポーネント
 interface ButtonProps {
@@ -137,10 +137,15 @@ const TimelineSegmentItem: React.FC<TimelineSegmentItemProps> = ({
 
 
 const CodingInterviewTimer: React.FC = () => {
-    const { state, start, pause, resume, reset, setTime } = useTimer();
+    const { state, start, pause, resume, reset, setTime, setTotalDuration } = useTimer();
     const [showTimeInput, setShowTimeInput] = useState(false);
     const [inputMinutes, setInputMinutes] = useState('');
     const [inputSeconds, setInputSeconds] = useState('');
+
+    // 動的にタイムラインセグメントを生成
+    const timelineSegments = useMemo(() => {
+        return generateTimelineSegments(state.totalDuration);
+    }, [state.totalDuration]);
 
     const formatTime = (seconds: number): string => {
         const mins = Math.floor(seconds / 60);
@@ -149,18 +154,18 @@ const CodingInterviewTimer: React.FC = () => {
     };
 
     const getRemainingTime = (): string => {
-        const remaining = TOTAL_DURATION - state.elapsedTime;
+        const remaining = state.totalDuration - state.elapsedTime;
         return formatTime(Math.max(0, remaining));
     };
 
     const getCurrentSegment = (): TimelineSegment | null => {
-        return TIMELINE_SEGMENTS.find(
+        return timelineSegments.find(
             segment => state.elapsedTime >= segment.startTime && state.elapsedTime < segment.endTime
         ) || null;
     };
 
     const getProgressPercentage = (): number => {
-        return Math.min((state.elapsedTime / TOTAL_DURATION) * 100, 100);
+        return Math.min((state.elapsedTime / state.totalDuration) * 100, 100);
     };
 
     const handleTimeAdjust = () => {
@@ -168,8 +173,8 @@ const CodingInterviewTimer: React.FC = () => {
         const seconds = parseInt(inputSeconds) || 0;
         const totalSeconds = minutes * 60 + seconds;
 
-        if (totalSeconds >= 0 && totalSeconds <= TOTAL_DURATION) {
-            setTime(totalSeconds);
+        if (totalSeconds >= 5 * 60 && totalSeconds <= 120 * 60) { // 5分〜120分の範囲
+            setTotalDuration(totalSeconds);
             setShowTimeInput(false);
             setInputMinutes('');
             setInputSeconds('');
@@ -178,7 +183,7 @@ const CodingInterviewTimer: React.FC = () => {
 
     const currentSegment = getCurrentSegment();
     const progressPercentage = getProgressPercentage();
-    const isTimeUp = state.elapsedTime >= TOTAL_DURATION;
+    const isTimeUp = state.elapsedTime >= state.totalDuration;
 
     return (
         <div className="bg-gray-50 p-4 overflow-hidden">
@@ -233,12 +238,20 @@ const CodingInterviewTimer: React.FC = () => {
                     {/* 時間調整入力 */}
                     {showTimeInput && (
                         <div className="bg-gray-100 rounded-lg p-3 mt-2">
+                            <div className="text-center mb-3">
+                                <div className="text-sm font-semibold text-gray-700 mb-2">
+                                    コーディングテスト全体の所要時間を設定
+                                </div>
+                                <div className="text-xs text-gray-500">
+                                    現在の設定: {formatTime(state.totalDuration)} (各セグメントの時間は自動計算されます)
+                                </div>
+                            </div>
                             <div className="flex justify-center items-center gap-4 flex-wrap">
                                 <TimeInput
                                     label="分"
                                     value={inputMinutes}
                                     onChange={setInputMinutes}
-                                    max={30}
+                                    max={120}
                                 />
                                 <TimeInput
                                     label="秒"
@@ -278,7 +291,7 @@ const CodingInterviewTimer: React.FC = () => {
 
                     {/* セグメント一覧 */}
                     <div className="grid grid-cols-1 gap-2 overflow-y-auto">
-                        {TIMELINE_SEGMENTS.map((segment, index) => {
+                        {timelineSegments.map((segment, index) => {
                             const isActive = currentSegment?.name === segment.name;
                             const isPassed = state.elapsedTime > segment.endTime;
 
@@ -319,7 +332,7 @@ const CodingInterviewTimer: React.FC = () => {
                             <StatusItem
                                 label="残り時間"
                                 value={getRemainingTime()}
-                                color={`font-mono ${TOTAL_DURATION - state.elapsedTime <= 5 * 60 ? 'text-red-600' : 'text-green-600'}`}
+                                color={`font-mono ${state.totalDuration - state.elapsedTime <= 5 * 60 ? 'text-red-600' : 'text-green-600'}`}
                             />
                         </div>
                     </div>
