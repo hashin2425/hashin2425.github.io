@@ -243,6 +243,7 @@ export default function Home() {
         <p>主に、普段の開発での困りごと（解決に時間がかかった不具合）などを記録しています。</p>
         <ul className="pt-4 overflow-y-auto max-h-96">
           <li>2025年</li>
+          <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/f1956d5c7e95eea67fdf" postedAt="2025-08-09" articleTitle="Windowsで作ったスクリプトをLinuxで動かすときは改行コードに要注意" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/d038e0d3de61e51ee3e0" postedAt="2025-01-10" articleTitle="実はGitHub Copilotに前提情報を渡すことができる (.github/copilot-instructions.md)" />
           <li>2024年（6本）</li>
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/a2287f77d417faa5b2bc" postedAt="2024-12-26" articleTitle="【Python】Webアプリ開発におけるタイムゾーンの扱い方・注意点（datetime / zoneinfo）" />
