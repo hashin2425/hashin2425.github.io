@@ -242,6 +242,8 @@ export default function Home() {
         <p>Qiitaに技術記事を投稿しています。</p>
         <p>主に、普段の開発での困りごと（解決に時間がかかった不具合）などを記録しています。</p>
         <ul className="pt-4 overflow-y-auto max-h-96">
+          <li>2026年</li>
+          <p>なし</p>
           <li>2025年</li>
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/f1956d5c7e95eea67fdf" postedAt="2025-08-09" articleTitle="Windowsで作ったスクリプトをLinuxで動かすときは改行コードに要注意" />
           <ArticleLinkGenerator articleLink="https://qiita.com/hashin2425/items/d038e0d3de61e51ee3e0" postedAt="2025-01-10" articleTitle="実はGitHub Copilotに前提情報を渡すことができる (.github/copilot-instructions.md)" />
