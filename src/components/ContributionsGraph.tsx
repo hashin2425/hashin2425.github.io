@@ -180,7 +180,7 @@ const ContributionsGraph: React.FC = () => {
               tickFormatter={(value) => {
                 if (activeTab === "monthly") {
                   const [year, month] = value.split("/");
-                  return [1, 7].includes(parseInt(month)) ? `${year}/0${month}` : "";
+                  return [3].includes(parseInt(month)) ? `${year}/${month}` : "";
                 }
                 return value;
               }}
