@@ -189,10 +189,10 @@ const ContributionsGraph: React.FC = () => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="commits" stackId="a" fill="#4ade80" name="Commits" />
-            <Bar dataKey="pullRequests" stackId="a" fill="#60a5fa" name="Pull Requests" />
-            <Bar dataKey="issues" stackId="a" fill="#f87171" name="Issues" />
-            <Bar dataKey="reviews" stackId="a" fill="#fbbf24" name="Reviews" />
+            <Bar dataKey="commits" stackId="a" fill="rgb(72, 200, 128)" name="Commits" />
+            <Bar dataKey="pullRequests" stackId="a" fill="rgb(96, 160, 240)" name="Pull Requests" />
+            <Bar dataKey="issues" stackId="a" fill="rgb(248, 112, 112)" name="Issues" />
+            <Bar dataKey="reviews" stackId="a" fill="rgb(240, 188, 36)" name="Reviews" />
           </BarChart>
         </ResponsiveContainer>
       </div>
