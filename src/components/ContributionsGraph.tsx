@@ -18,7 +18,7 @@ const StatData: { [year: number]: { [month: number]: { commitCount: number; prCo
   2026: {
     1: { commitCount: 221, prCount: 9, issueCount: 4, review: 11 },
     2: { commitCount: 275, prCount: 17, issueCount: 14, review: 14 },
-    3: { commitCount: 196, prCount: 3, issueCount: 35, review: 20 },
+    3: { commitCount: 306, prCount: 5, issueCount: 41, review: 27 },
     4: { commitCount: 0, prCount: 0, issueCount: 0, review: 0 },
     5: { commitCount: 0, prCount: 0, issueCount: 0, review: 0 },
     6: { commitCount: 0, prCount: 0, issueCount: 0, review: 0 },
