@@ -16,13 +16,13 @@ type StatDataType = {
 
 const StatData: { [year: number]: { [month: number]: { commitCount: number; prCount: number; issueCount: number; review: number } } } = {
   2026: {
-    1: { commitCount: 221, prCount: 9, issueCount: 4, review: 11 },
-    2: { commitCount: 275, prCount: 17, issueCount: 14, review: 14 },
-    3: { commitCount: 526, prCount: 20, issueCount: 91, review: 48 },
-    4: { commitCount: 161, prCount: 13, issueCount: 55, review: 13 },
-    5: { commitCount: 433, prCount: 21, issueCount: 35, review: 12 },
-    6: { commitCount: 246, prCount: 42, issueCount: 47, review: 19 },
-    7: { commitCount: 0, prCount: 0, issueCount: 0, review: 0 },
+    1: { commitCount: 230, prCount: 9, issueCount: 4, review: 11 },
+    2: { commitCount: 287, prCount: 17, issueCount: 14, review: 14 },
+    3: { commitCount: 540, prCount: 20, issueCount: 91, review: 48 },
+    4: { commitCount: 212, prCount: 13, issueCount: 55, review: 13 },
+    5: { commitCount: 449, prCount: 21, issueCount: 35, review: 12 },
+    6: { commitCount: 277, prCount: 42, issueCount: 47, review: 19 },
+    7: { commitCount: 293, prCount: 56, issueCount: 18, review: 10 },
     8: { commitCount: 0, prCount: 0, issueCount: 0, review: 0 },
     9: { commitCount: 0, prCount: 0, issueCount: 0, review: 0 },
     10: { commitCount: 0, prCount: 0, issueCount: 0, review: 0 },
