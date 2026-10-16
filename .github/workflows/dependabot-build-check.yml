@@ -7,7 +7,6 @@ on:
 # Dependabotからのプルリクエストにのみ権限を付与
 permissions:
   contents: read
-  pull-requests: read
 
 jobs:
   build-test:
@@ -16,14 +15,19 @@ jobs:
     if: ${{ github.actor == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
 
+    # PRへのコメント投稿とソースのチェックアウトに必要なため
+    permissions:
+      contents: read
+      pull-requests: write
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "npm"
 
       - name: Install dependencies
@@ -35,7 +39,7 @@ jobs:
       # ビルドが失敗した場合、PRにコメントを残す
       - name: Comment on PR if build fails
         if: failure()
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             github.rest.issues.createComment({
