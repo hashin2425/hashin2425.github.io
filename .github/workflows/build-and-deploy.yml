@@ -9,11 +9,17 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '**/*.js'
-      - '**/*.jsx'
-      - '**/*.ts'
-      - '**/*.tsx'
+    # サイトの出力に影響しないファイルだけを除外する。
+    # 以前は JS/TS だけを許可リストで指定していたため、画像・CSS・configs/・public/・
+    # package.json・ロックファイル・next.config.* などの変更で再デプロイされなかった。
+    # 許可リストは追加漏れが「デプロイされない」側に倒れるので、除外リスト方式にしている。
+    paths-ignore:
+      # ビルド成果物そのもの（このワークフローが push する）
+      - 'docs/**'
+      - '**/*.md'
+      - '.vscode/**'
+      - '.github/dependabot.yml'
+      - '.github/workflows/dependabot-build-check.yml'
   workflow_dispatch:
 
 # 既定は読み取りのみ。書き込みが必要なジョブだけ個別に権限を付ける
